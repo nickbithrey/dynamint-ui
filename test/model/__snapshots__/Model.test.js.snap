@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Model /> rendering renders standard component 1`] = `
+<div>
+  <h1>
+    Models
+  </h1>
+  <Table
+    list={null}
+    load={[MockFunction]}
+    tag={[Function]}
+  />
+  <Link
+    replace={false}
+    to="/models/create"
+  >
+    Create
+  </Link>
+  <Route
+    path="/models/:type"
+    render={[Function]}
+  />
+</div>
+`;
