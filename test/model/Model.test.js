@@ -36,7 +36,6 @@ describe('<Model /> rendering', () => {
 		expect(route).toHaveLength(1);
 		expect(route.children().length).toBe(0);
 		expect(route.prop('path')).toBe('/models/:type');
-		expect(route.prop('render')).toBe(ModelDetails);
 	});
 
 	it('renders routes', () => {
@@ -51,6 +50,5 @@ describe('<Model /> rendering', () => {
 		expect(route).toHaveLength(1);
 		expect(route.children().length).toBe(0);
 		expect(route.prop('path')).toBe('/models/:type');
-		expect(route.prop('render')).toBe(ModelDetails);
 	});
 });
