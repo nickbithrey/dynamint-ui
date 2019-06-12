@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table /> rendering can render standard table with records 1`] = `
+<table>
+  <tbody>
+    <Record
+      description="desc"
+      key="0"
+      reference="ref"
+    />
+    <Record
+      description="desc2"
+      key="1"
+      reference="ref2"
+    />
+  </tbody>
+</table>
+`;
