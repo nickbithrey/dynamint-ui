@@ -2,7 +2,9 @@ const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
-	template : "./index.html",
+	title: 'DynamInt',
+	base: 'http://localhost:3000/',
+	//template : "./index.html",
 	filename : "index.html"
 });
 
@@ -13,7 +15,6 @@ module.exports = {
 	stats : 'normal',
 	output : {
 		filename : 'bundled.js',
-		publicPath : '',
 	},
 	resolve : {
 		modules : [
@@ -39,6 +40,7 @@ module.exports = {
 	plugins : [ htmlWebpackPlugin ],
 	devServer : {
 		port : 3333,
-		historyApiFallback : true
+		historyApiFallback : true,
+		publicPath : 'http://localhost:3000/'
 	}
 };

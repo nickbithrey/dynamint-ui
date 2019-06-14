@@ -16,9 +16,18 @@ export default function reducer(state = initialState, action) {
 				return {reference: model.reference, description: model.description, status: 'ACTIVE'};
 			});
 			return {...state, models: modelRows, page: action.payload.page};
+		case 'LOAD_MODEL':
+		case 'LOAD_MODEL_REQUEST':
+			return {...state, details: {}};
+		case 'LOAD_MODEL_SUCCESS':
+			return {...state, details: {...action.payload}};
+		case 'CLEAR_MODEL':
+			return {...state, details: null};
 		case 'CREATE_MODEL_SUCCESS':
+		case 'UPDATE_MODEL_SUCCESS':
 			return {...state, models: null};
 		case 'CREATE_MODEL_FAILURE':
+		case 'UPDATE_MODEL_FAILURE':
 			return {...state, failure: action.payload.response.message};
 		default:
 			return {...state};

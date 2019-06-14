@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import ModelRecord from '~/model/ModelRecord';
+import ModelRecord from '~/model/selection/ModelRecord';
 import TableRow from '~/lib/TableRow';
 
 describe('<ModelRecord /> rendering', () => {
