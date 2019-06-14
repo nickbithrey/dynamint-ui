@@ -1,16 +1,15 @@
 import React from 'react';
-import ModelRecord from './ModelRecord';
-import Table from '~/lib/Table';
-import ModelDetails from './ModelDetails';
-import { Route, Link } from 'react-router-dom';
+import ModelSelection from './selection';
+import ModelDetails from './details';
+import { Route, Switch } from 'react-router-dom';
 
 
 export const Model = ({load, create, models = {models:null}}) => (
 	<div>
-		<h1>Models</h1>
-		<Table list={models.models} load={load} tag={ModelRecord}></Table>
-		<Link to="/models/create">Create</Link>
-		<Route path="/models/:type" render={props => <ModelDetails update={create} {...props}/>}></Route>
+		<Switch>
+			<Route exact path="/models" component={ModelSelection}></Route>
+			<Route path="/models/:type" component={ModelDetails}></Route>
+		</Switch>
 	</div>
 );
 
