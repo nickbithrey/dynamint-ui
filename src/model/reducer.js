@@ -1,14 +1,12 @@
 import reducerRegistry from '../redux/reducer';
 
-import {
-	LOAD_MODELS
-} from './action';
-
 const initialState = {models: null};
 
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
-		case LOAD_MODELS:
+		case 'UPDATE_FIELD':
+			return {...state, details: {...state.details, ...action.field}}
+		case 'LOAD_MODELS':
 		case 'LOAD_MODELS_REQUEST':
 			return {...state, models: []};
 		case 'LOAD_MODELS_SUCCESS':

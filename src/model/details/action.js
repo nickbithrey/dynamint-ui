@@ -30,4 +30,11 @@ export const clear = () => {
 	return {
 		type: 'CLEAR_MODEL'
 	};
+};
+
+export const updateField = (field) => {
+	return {
+		type: 'UPDATE_FIELD',
+		field: field
+	};
 }

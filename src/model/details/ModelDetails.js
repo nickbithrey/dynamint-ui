@@ -1,4 +1,7 @@
 import React from 'react';
+import Button from '~/lib/Button';
+import Field from '~/lib/Field';
+import { Stack } from 'office-ui-fabric-react/lib/Stack';
 
 export default class ModelDetails extends React.Component {
 
@@ -8,7 +11,13 @@ export default class ModelDetails extends React.Component {
 		this.update = this.update.bind(this);
 		this.back = this.back.bind(this);
 		this.create = this.props.match.params.type === 'create';
-		this.id = props.location.state.id;
+		this.addAttr = this.addAttr.bind(this);
+		this.updateAttrField = this.updateAttrField.bind(this);
+		if (props.location.state) {
+			this.id = props.location.state.id;
+		} else {
+			this.id = null;
+		}
 	}
 	
 	componentDidMount() {
@@ -17,11 +26,8 @@ export default class ModelDetails extends React.Component {
 		}
 	}
 	
-	updateField(e) {
-		e.preventDefault();
-		const val = e.target.value;
-		const name = e.target.getAttribute('data-item');
-		this.props.details[name]= val;
+	updateField(field, e) {
+		this.props.updateField(field);
 	}
 	
 	update(e) {
@@ -41,18 +47,46 @@ export default class ModelDetails extends React.Component {
 		this.props.history.goBack();
 	}
 	
+	addAttr(e) {
+		e.preventDefault();
+		let attributes = this.props.details.attributes;
+		if (!attributes) {
+			attributes = [];
+		}
+		attributes.push({});
+		this.updateField({attributes: attributes});
+	}
+	
+	updateAttrField(field, e) {
+		let attrIndex = e.target.getAttribute('data-index');
+		let attrs = this.props.details.attributes;
+		let attr = {...this.props.details.attributes[attrIndex], ...field};
+		attrs[attrIndex] = attr;
+		this.updateField({attributes: attrs});
+	}
+	
 	render() {
 		if (!this.props.details) {
 			return <h1>Loading</h1>
 		}
+		let attributes = this.props.details.attributes;
+		if (!attributes) {
+			attributes = [];
+		}
 		return (
 			<div>
-				<form onSubmit={this.update}>
-					reference: <input type="text" name="reference" id="edit-reference" placeholder="Reference" data-item="reference" onChange={this.updateField} defaultValue={this.props.details.reference} />
-					description: <input type="text" name="description" id="edit-description" placeholder="Description" data-item="description" onChange={this.updateField} defaultValue={this.props.details.description} />
-					<button type="submit">Create</button>
+				<form>
+					<Stack maxWidth={300}>
+						<Field label="Reference" value={this.props.details.reference} update={this.updateField} name="reference" />
+						<Field label="Description" value={this.props.details.description} update={this.updateField} name="description" />
+					</Stack>
+					<Stack>
+						{attributes.map((a,i) => <Field label="name" value={a.name} update={this.updateAttrField} name="name" data-index={i} />)}
+					</Stack>
+					<Button text="Add Attribute" onClick={this.addAttr} />
+					<Button text="Create" onClick={this.update} />
+					<Button text="Back" onClick={this.back} />
 				</form>
-				<button onClick={this.back}>Back</button>
 			</div>
 		);
 	}

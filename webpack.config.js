@@ -2,9 +2,7 @@ const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
-	title: 'DynamInt',
-	base: 'http://localhost:3000/',
-	//template : "./index.html",
+	template : "./index.html",
 	filename : "index.html"
 });
 
