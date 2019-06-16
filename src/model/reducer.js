@@ -1,6 +1,11 @@
 import reducerRegistry from '../redux/reducer';
 
-const initialState = {models: null};
+const initialState = {
+	models: [
+ 	    {col1: 'ref', col2: 'desc', col3: 'ACTIVE'},
+	    {col1: 'ref2', col2: 'desc2', col3: 'ACTIVE'}
+	]
+};
 
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
