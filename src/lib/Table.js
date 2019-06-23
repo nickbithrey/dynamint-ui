@@ -36,12 +36,13 @@ export default class Table extends React.Component {
 		return (
 			<DetailsList
 	            items={list}
-	            compact={true}
+	            compact={false}
 	            columns={columns}
 	            selectionMode={SelectionMode.single}
 	            setKey="set"
 	            layoutMode={DetailsListLayoutMode.justified}
 	            isHeaderVisible={true}
+				selection={this.props.selection}
 	            selectionPreservedOnEmptyClick={true}
 	            enterModalSelectionOnTouch={true}
 	            ariaLabelForSelectionColumn="Toggle selection"

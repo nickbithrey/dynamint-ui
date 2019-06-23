@@ -2,27 +2,30 @@ import React from 'react';
 import Button from '~/lib/Button';
 import Field from '~/lib/Field';
 import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { GroupedList, IGroup, IGroupHeaderProps, IGroupFooterProps } from 'office-ui-fabric-react/lib/GroupedList';
+import ModelAttribute from './ModelAttribute';
 
 export default class ModelDetails extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.updateField = this.updateField.bind(this);
+		this.updateAttributes = this.updateAttributes.bind(this);
 		this.update = this.update.bind(this);
 		this.back = this.back.bind(this);
 		this.create = this.props.match.params.type === 'create';
-		this.addAttr = this.addAttr.bind(this);
-		this.updateAttrField = this.updateAttrField.bind(this);
 		if (props.location.state) {
+			this.uri = this.props.location.state.uri;
 			this.id = props.location.state.id;
 		} else {
 			this.id = null;
+			this.uri = null;
 		}
 	}
 	
 	componentDidMount() {
 		if (!this.props.details) {
-			this.props.load(this.id);
+			this.props.load(this.uri);
 		}
 	}
 	
@@ -35,10 +38,14 @@ export default class ModelDetails extends React.Component {
 		if (this.create) {
 			this.props.create(this.props.details);
 		} else {
-			this.props.update(this.id, this.props.details);
+			this.props.update(this.uri, this.props.details);
 		}
 		this.props.clear();
 		this.props.history.goBack();
+	}
+	
+	updateAttributes(attrs) {
+		this.props.updateField({attributes: attrs});
 	}
 	
 	back(e) {
@@ -47,26 +54,8 @@ export default class ModelDetails extends React.Component {
 		this.props.history.goBack();
 	}
 	
-	addAttr(e) {
-		e.preventDefault();
-		let attributes = this.props.details.attributes;
-		if (!attributes) {
-			attributes = [];
-		}
-		attributes.push({});
-		this.updateField({attributes: attributes});
-	}
-	
-	updateAttrField(field, e) {
-		let attrIndex = e.target.getAttribute('data-index');
-		let attrs = this.props.details.attributes;
-		let attr = {...this.props.details.attributes[attrIndex], ...field};
-		attrs[attrIndex] = attr;
-		this.updateField({attributes: attrs});
-	}
-	
 	render() {
-		if (!this.props.details) {
+		if (!this.props.details || Object.keys(this.props.details).length === 0) {
 			return <h1>Loading</h1>
 		}
 		let attributes = this.props.details.attributes;
@@ -74,20 +63,20 @@ export default class ModelDetails extends React.Component {
 			attributes = [];
 		}
 		return (
-			<div>
-				<form>
-					<Stack maxWidth={300}>
-						<Field label="Reference" value={this.props.details.reference} update={this.updateField} name="reference" />
-						<Field label="Description" value={this.props.details.description} update={this.updateField} name="description" />
-					</Stack>
-					<Stack>
-						{attributes.map((a,i) => <Field label="name" value={a.name} update={this.updateAttrField} name="name" data-index={i} />)}
-					</Stack>
-					<Button text="Add Attribute" onClick={this.addAttr} />
-					<Button text="Create" onClick={this.update} />
-					<Button text="Back" onClick={this.back} />
-				</form>
-			</div>
-		);
+				<div>
+					<form>
+						<Stack maxWidth={600}>
+							<Field label="Reference" value={this.props.details.reference} update={this.updateField} name="reference" />
+							<Field label="Description" value={this.props.details.description} update={this.updateField} name="description" />
+						</Stack>
+						<Stack maxWidth={600}>
+							<ModelAttribute attributes={attributes} updateAttributes={this.updateAttributes} componentConfigurationUri={this.uri} />
+						</Stack>
+						<Button text="Save" onClick={this.update} />
+						<Button text="Back" onClick={this.back} />
+					</form>
+				</div>
+			);
 	}
+						
 }

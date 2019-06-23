@@ -1,13 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import SelectionComponent from '~/lib/SelectionComponent';
+import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
 
 const initModel = {
 	models: [
-	    {col1: 'ref', col2: 'desc', col3: 'ACTIVE'},
-	    {col1: 'ref2', col2: 'desc2', col3: 'ACTIVE'}
+	    {reference: 'ref', description: 'desc', status: 'ACTIVE', uri: 'uri1'},
+	    {reference: 'ref2', description: 'desc2', status: 'ACTIVE', uri: 'uri2'}
 	]
 }
+
+const classNames = mergeStyleSets({
+  hidden: {
+    selectors: {
+      '&:before': {
+    	  width: '0px',
+    	  visibility: 'hidden'
+      }
+    }
+  }
+});
+
+
+const columns = [
+    {key: 'reference', name: 'Reference', fieldName: 'reference', minWidth: 50, maxWidth: 150},
+    {key: 'componentType', name: 'Type', fieldName: 'componentType', maxWidth: 50},
+    {key: 'description', name: 'Description', fieldName: 'description', minWidth: 500}
+];
 
 export const ModelSelection = ({load, models = initModels}) => (
 	<SelectionComponent 
@@ -15,25 +33,25 @@ export const ModelSelection = ({load, models = initModels}) => (
 		list={models.models}
 		loadList={load}
 		columns={columns}
-		createBtn={newBtn('/models/create', {}, 'Create')}
-		editBtn={newBtn('/models/edit', {id: 1}, 'Edit')}
+		createBtn={newBtn('/models/create', () => {}, 'Create')}
+		editBtn={{...newBtn('/models/edit', getUriFromSelection, 'Edit'), condition: selectionDetails => selectionDetails.getSelectedCount() > 0}}
 	/>
 );
 
-const columns = [
-    {key: 'col1', name: 'Reference', fieldName: 'col1', minWidth: 50},
-    {key: 'col2', name: 'Description', fieldName: 'col2', minWidth: 500},
-    {key: 'col3', name: 'Status', fieldName: 'col3'}
-];
-
-const newBtn = (path, state, text) => {
+const newBtn = (path, stateFn, text) => {
 	return {
 		text: text,
-		to: {
-			pathname: path,
-			state: state
-		}
+		pathname: path,
+		stateFn: stateFn,
+		condition: selectionDetails => true
 	};
+}
+
+const getUriFromSelection = selectionDetails => {
+	return {
+		id: selectionDetails.getSelection()[0].reference,
+		uri: selectionDetails.getSelection()[0].uri
+	}
 }
 
 export default ModelSelection;
