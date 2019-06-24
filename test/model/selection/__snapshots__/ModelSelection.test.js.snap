@@ -1,44 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ModelSelection /> rendering renders standard record 1`] = `
-<div>
-  <h1>
-    Models
-  </h1>
-  <Table
-    list={
-      Array [
-        Object {
-          "col1": "col1",
-        },
-      ]
-    }
-    load={[MockFunction]}
-    tag={[Function]}
-  />
-  <Link
-    replace={false}
-    to={
+<SelectionComponent
+  columns={
+    Array [
       Object {
-        "pathname": "/models/create",
-        "state": Object {},
-      }
-    }
-  >
-    Create
-  </Link>
-  <Link
-    replace={false}
-    to={
+        "fieldName": "reference",
+        "key": "reference",
+        "maxWidth": 150,
+        "minWidth": 50,
+        "name": "Reference",
+      },
       Object {
-        "pathname": "/models/edit",
-        "state": Object {
-          "id": 1,
-        },
-      }
+        "fieldName": "componentType",
+        "key": "componentType",
+        "maxWidth": 50,
+        "name": "Type",
+      },
+      Object {
+        "fieldName": "description",
+        "key": "description",
+        "minWidth": 500,
+        "name": "Description",
+      },
+    ]
+  }
+  createBtn={
+    Object {
+      "condition": [Function],
+      "pathname": "/models/create",
+      "stateFn": [Function],
+      "text": "Create",
     }
-  >
-    Edit
-  </Link>
-</div>
+  }
+  editBtn={
+    Object {
+      "condition": [Function],
+      "pathname": "/models/edit",
+      "stateFn": [Function],
+      "text": "Edit",
+    }
+  }
+  list={
+    Array [
+      Object {
+        "componentType": "type",
+        "description": "description",
+        "reference": "reference",
+      },
+    ]
+  }
+  loadList={[MockFunction]}
+  title="Models"
+/>
 `;

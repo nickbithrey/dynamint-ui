@@ -26,8 +26,7 @@ export default class Table extends React.Component {
 	render() {
 		let {
 			list,
-			columns,
-			tag: Record
+			columns
 		} = this.props;
 		
 		if (!list) {

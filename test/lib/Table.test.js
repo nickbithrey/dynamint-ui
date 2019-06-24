@@ -18,7 +18,7 @@ describe('<Table /> rendering', () => {
 			{reference:'ref2', description: 'desc2'}
 		]
 		const load = jest.fn(() => []);
-		const wrapper = shallow( <Table list={list} load={load} tag={Record} /> );
+		const wrapper = shallow( <Table list={list} load={load} /> );
 		
 		expect(wrapper).toMatchSnapshot();
 		expect(wrapper.instance().props.load).not.toBeCalled();
@@ -28,7 +28,9 @@ describe('<Table /> rendering', () => {
 		const load = jest.fn(() => []);
 		const wrapper = shallow( <Table list={[]} load={load} tag={Record} /> );
 
-		expect(wrapper.find(Record)).toHaveLength(0);
+		expect(wrapper.find('StyledWithViewportComponent')).toHaveLength(1);
+		const listProps = wrapper.find('StyledWithViewportComponent').props();
+		expect(listProps.items).toHaveLength(0);
 		expect(wrapper.instance().props.load).not.toBeCalled();
 	});
 		
@@ -41,7 +43,9 @@ describe('<Table /> rendering', () => {
 		const load = jest.fn(() => []);
 		const wrapper = shallow( <Table list={list} load={load} tag={Record} /> );
 		
-		expect(wrapper.find(Record)).toHaveLength(list.length);
+		expect(wrapper.find('StyledWithViewportComponent')).toHaveLength(1);
+		const listProps = wrapper.find('StyledWithViewportComponent').props();
+		expect(listProps.items).toHaveLength(list.length);
 		expect(wrapper.instance().props.load).not.toBeCalled();
 	});
 		

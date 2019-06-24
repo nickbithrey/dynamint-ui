@@ -2,39 +2,39 @@
 
 exports[`<ModelDetails /> rendering renders standard component 1`] = `
 <div>
-  <form
-    onSubmit={[Function]}
-  >
-    reference: 
-    <input
-      data-item="reference"
-      defaultValue="ref"
-      id="edit-reference"
-      name="reference"
-      onChange={[Function]}
-      placeholder="Reference"
-      type="text"
-    />
-    description: 
-    <input
-      data-item="description"
-      defaultValue="desc"
-      id="edit-description"
-      name="description"
-      onChange={[Function]}
-      placeholder="Description"
-      type="text"
-    />
-    <button
-      type="submit"
+  <form>
+    <Stack
+      maxWidth={600}
     >
-      Create
-    </button>
+      <Field
+        label="Reference"
+        name="reference"
+        update={[Function]}
+        value="ref"
+      />
+      <Field
+        label="Description"
+        name="description"
+        update={[Function]}
+        value="desc"
+      />
+    </Stack>
+    <Stack
+      maxWidth={600}
+    >
+      <ModelAttribute
+        attributes={Array []}
+        updateAttributes={[Function]}
+      />
+    </Stack>
+    <Button
+      onClick={[Function]}
+      text="Save"
+    />
+    <Button
+      onClick={[Function]}
+      text="Back"
+    />
   </form>
-  <button
-    onClick={[Function]}
-  >
-    Back
-  </button>
 </div>
 `;
