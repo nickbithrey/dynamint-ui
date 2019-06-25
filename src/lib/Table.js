@@ -29,7 +29,7 @@ export default class Table extends React.Component {
 			columns
 		} = this.props;
 		
-		if (!list) {
+		if (!list || list.length === 0) {
 			return <h1>no data</h1>
 		}
 		return (

@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import ModelSelection from '~/model/selection/ModelSelection';
-import TableRow from '~/lib/TableRow';
 
 describe('<ModelSelection /> rendering', () => {
 

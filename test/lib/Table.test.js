@@ -28,10 +28,10 @@ describe('<Table /> rendering', () => {
 		const load = jest.fn(() => []);
 		const wrapper = shallow( <Table list={[]} load={load} tag={Record} /> );
 
-		expect(wrapper.find('StyledWithViewportComponent')).toHaveLength(1);
-		const listProps = wrapper.find('StyledWithViewportComponent').props();
-		expect(listProps.items).toHaveLength(0);
-		expect(wrapper.instance().props.load).not.toBeCalled();
+		expect(wrapper.find('StyledWithViewportComponent')).toHaveLength(0);
+		
+		const noData = wrapper.find('h1');
+		expect(noData.text()).toEqual('no data');
 	});
 		
 	it('renders table with same number of records and in list', () => {
@@ -57,7 +57,6 @@ describe('<Table /> rendering', () => {
 	});
 		
 	it('calls load function when list is undefined on update', () => {
-		let list;
 		const load = jest.fn(() => []);
 		const wrapper = shallow( <Table list={[]} load={load} tag={Record} /> );
 
