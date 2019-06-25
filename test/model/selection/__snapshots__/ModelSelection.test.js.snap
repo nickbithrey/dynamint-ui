@@ -2,6 +2,22 @@
 
 exports[`<ModelSelection /> rendering renders standard record 1`] = `
 <SelectionComponent
+  buttons={
+    Array [
+      Object {
+        "condition": [Function],
+        "pathname": "/models/edit",
+        "stateFn": [Function],
+        "text": "Edit",
+      },
+      Object {
+        "condition": [Function],
+        "pathname": "/models/create",
+        "stateFn": [Function],
+        "text": "Create",
+      },
+    ]
+  }
   columns={
     Array [
       Object {
@@ -24,22 +40,6 @@ exports[`<ModelSelection /> rendering renders standard record 1`] = `
         "name": "Description",
       },
     ]
-  }
-  createBtn={
-    Object {
-      "condition": [Function],
-      "pathname": "/models/create",
-      "stateFn": [Function],
-      "text": "Create",
-    }
-  }
-  editBtn={
-    Object {
-      "condition": [Function],
-      "pathname": "/models/edit",
-      "stateFn": [Function],
-      "text": "Edit",
-    }
   }
   list={
     Array [

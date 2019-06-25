@@ -11,32 +11,24 @@ export default class SelectionComponent extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {selection: []};
+		this.state = {};
 
 		this.selection = new Selection({
-	      onSelectionChanged: () => {
-	        this.setState({
-	          selectionDetails: this.getSelectionDetails()
-	        });
-	      }
+		    onSelectionChanged: () => {
+		        this.setState({
+		            selectionDetails: this.getSelectionDetails()
+		        });
+		    }
 	    });
 		this.renderButton = this.renderButton.bind(this);
 	}
 	
 	getSelectionDetails() {
-		if (this.selection.getSelection().length !== 0) {
-			return this.selection.getSelection()[0].col1;
+		if (this.selection.getSelectedCount() > 0) {
+			return this.selection;
 		}
 	}
 	
-	load() {
-		this.props.loadList();
-	}
-	
-	componentDidMount() {
-		this.load();
-	}
-
 	renderTitle(title) {
 		if (title) {
 			return (
@@ -56,9 +48,7 @@ export default class SelectionComponent extends React.Component {
 	}
 
 	renderButtons(buttons = []) {
-		return (
-			buttons.filter(btn => btn.condition(this.selection)).map(this.renderButton)
-		);
+		return buttons.filter(btn => btn.condition(this.selection)).map(this.renderButton);
 	}
 	
 	renderButton(btn, i) {
@@ -77,8 +67,7 @@ export default class SelectionComponent extends React.Component {
 			list, 
 			loadList, 
 			columns, 
-			createBtn, 
-			editBtn
+			buttons
 		} = this.props;
 		return (
 			<div>
@@ -86,7 +75,7 @@ export default class SelectionComponent extends React.Component {
 				{this.renderSelectionTable(list, loadList, columns)}
 				<Stack horizontalAlign={'end'}>
 					<Stack horizontal tokens={{childrenGap: 5}} horizontal-align="space-between">
-						{this.renderButtons([editBtn, createBtn])}
+						{this.renderButtons(buttons)}
 					</Stack>
 				</Stack>
 			</div>
@@ -99,9 +88,6 @@ SelectionComponent.propTypes = {
 	title: PropTypes.string,
 	list: PropTypes.array,
 	loadList: PropTypes.func,
-	columns: PropTypes.array,
-	createBtn: PropTypes.object,
-	editBtn: PropTypes.object
+	columns: PropTypes.arrayOf(PropTypes.object).isRequired,
+	buttons: PropTypes.arrayOf(PropTypes.object)
 };
-
-//export default SelectionComponent;

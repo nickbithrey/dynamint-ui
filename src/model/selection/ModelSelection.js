@@ -2,12 +2,7 @@ import React from 'react';
 import SelectionComponent from '~/lib/SelectionComponent';
 import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
 
-const initModel = {
-	models: [
-	    {reference: 'ref', description: 'desc', status: 'ACTIVE', uri: 'uri1'},
-	    {reference: 'ref2', description: 'desc2', status: 'ACTIVE', uri: 'uri2'}
-	]
-}
+const initModel = {};
 
 const classNames = mergeStyleSets({
   hidden: {
@@ -33,8 +28,7 @@ export const ModelSelection = ({load, models = initModels}) => (
 		list={models.models}
 		loadList={load}
 		columns={columns}
-		createBtn={newBtn('/models/create', () => {}, 'Create')}
-		editBtn={{...newBtn('/models/edit', getUriFromSelection, 'Edit'), condition: selectionDetails => selectionDetails.getSelectedCount() > 0}}
+		buttons={[{...newBtn('/models/edit', getUriFromSelection, 'Edit'), condition: selectionDetails => selectionDetails.getSelectedCount() > 0}, newBtn('/models/create', () => {}, 'Create')]}
 	/>
 );
 
