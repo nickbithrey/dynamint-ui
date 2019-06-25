@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Field /> rendering can render checkbox field 1`] = `
+<StyledCheckboxBase
+  checkbox={true}
+  defaultChecked="value"
+  name="name"
+  onBlur={[Function]}
+  onChange={[Function]}
+  update={[MockFunction]}
+  value="value"
+/>
+`;
+
+exports[`<Field /> rendering can render text field 1`] = `
+<StyledTextFieldBase
+  checkbox={false}
+  name="name"
+  onBlur={[Function]}
+  onChange={[Function]}
+  update={[MockFunction]}
+  value="value"
+/>
+`;

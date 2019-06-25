@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
 
@@ -29,6 +30,17 @@ class Field extends React.Component {
 		);
 	}
 	
+}
+
+Field.propTypes = {
+	name: PropTypes.string.isRequired,
+	value: PropTypes.oneOfType([
+				PropTypes.string,
+				PropTypes.number,
+				PropTypes.bool
+			]).isRequired,
+	update: PropTypes.func.isRequired,
+	checkbox: PropTypes.bool
 }
 
 export default Field;
