@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectionComponent from '~/lib/SelectionComponent';
+import SelectionComponent, { SelectionButton, alwaysShow, hasSelection } from '~/lib/SelectionComponent';
 import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
 
 const initModel = {};
@@ -28,18 +28,9 @@ export const ModelSelection = ({load, models = initModels}) => (
 		list={models.models}
 		loadList={load}
 		columns={columns}
-		buttons={[{...newBtn('/models/edit', getUriFromSelection, 'Edit'), condition: selectionDetails => selectionDetails.getSelectedCount() > 0}, newBtn('/models/create', () => {}, 'Create')]}
+		buttons={[new SelectionButton('Edit', '/models/edit', hasSelection, getUriFromSelection), new SelectionButton('Create', '/models/create')]}
 	/>
 );
-
-const newBtn = (path, stateFn, text) => {
-	return {
-		text: text,
-		pathname: path,
-		stateFn: stateFn,
-		condition: selectionDetails => true
-	};
-}
 
 const getUriFromSelection = selectionDetails => {
 	return {

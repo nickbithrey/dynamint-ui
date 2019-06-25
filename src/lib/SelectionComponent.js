@@ -48,10 +48,11 @@ export default class SelectionComponent extends React.Component {
 	}
 
 	renderButtons(buttons = []) {
-		return buttons.filter(btn => btn.condition(this.selection)).map(this.renderButton);
+		return buttons.map(btn => btn.build()).filter(btn => btn.condition(this.selection)).map(this.renderButton);
 	}
 	
 	renderButton(btn, i) {
+		console.log(btn);
 		let to = {
 			pathname: btn.pathname,
 			state: btn.stateFn(this.selection)
@@ -90,4 +91,33 @@ SelectionComponent.propTypes = {
 	loadList: PropTypes.func,
 	columns: PropTypes.arrayOf(PropTypes.object).isRequired,
 	buttons: PropTypes.arrayOf(PropTypes.object)
+};
+
+export class SelectionButton {
+	
+	constructor(text, path, condition, stateFn) {
+		this.text = text;
+		this.path = path;
+		this.condition = condition;
+		this.stateFn = stateFn;
+	}
+	
+	build() {
+		return {
+			text: this.text,
+			pathname: this.path,
+			stateFn: this.stateFn ? this.stateFn : () => {},
+			condition: this.condition ? this.condition : alwaysShow
+		};
+	}
+	
+}
+
+const alwaysShow = () => true;
+
+const hasSelection = selection => selection.getSelectedCount() > 0;
+
+export {
+	alwaysShow,
+	hasSelection
 };

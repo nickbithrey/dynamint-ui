@@ -70,7 +70,7 @@ exports[`<SelectionComponent /> rendering can render standard component with rec
         replace={false}
         to={
           Object {
-            "pathname": undefined,
+            "pathname": "path",
             "state": Object {},
           }
         }
@@ -84,7 +84,7 @@ exports[`<SelectionComponent /> rendering can render standard component with rec
         replace={false}
         to={
           Object {
-            "pathname": undefined,
+            "pathname": "path",
             "state": Object {},
           }
         }

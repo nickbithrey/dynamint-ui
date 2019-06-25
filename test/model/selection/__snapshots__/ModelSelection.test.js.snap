@@ -4,16 +4,16 @@ exports[`<ModelSelection /> rendering renders standard record 1`] = `
 <SelectionComponent
   buttons={
     Array [
-      Object {
+      SelectionButton {
         "condition": [Function],
-        "pathname": "/models/edit",
+        "path": "/models/edit",
         "stateFn": [Function],
         "text": "Edit",
       },
-      Object {
-        "condition": [Function],
-        "pathname": "/models/create",
-        "stateFn": [Function],
+      SelectionButton {
+        "condition": undefined,
+        "path": "/models/create",
+        "stateFn": undefined,
         "text": "Create",
       },
     ]

@@ -1,26 +1,19 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import SelectionComponent from '~/lib/SelectionComponent';
+import SelectionComponent, { SelectionButton } from '~/lib/SelectionComponent';
 
 describe('<SelectionComponent /> rendering', () => {
 
 	it('can render standard component with records', () => {
-		const btnFn = (text, condition, state) => {
-			return {
-				text: text,
-				condition: jest.fn(sel => condition),
-				stateFn: jest.fn(set => state)
-			};
-		};
 		const props = {
 			title: 'titleText',
 			list: [],
 			loadList: jest.fn(() => []),
 			columns: [],
 			buttons: [
-					btnFn('Edit', true, {}), 
-					btnFn('Create', true, {})
+					new SelectionButton('Edit', 'path', jest.fn(sel => true), jest.fn(sel => {return {}})), 
+					new SelectionButton('Create', 'path', jest.fn(sel => true), jest.fn(sel => {return {}}))
 				]
 		};
 		const wrapper = shallow( <SelectionComponent {...props} /> );
@@ -29,21 +22,14 @@ describe('<SelectionComponent /> rendering', () => {
 	});
 		
 	it('only renders buttons that have true conditions', () => {
-		const btnFn = (text, condition, state) => {
-			return {
-				text: text,
-				condition: jest.fn(sel => condition),
-				stateFn: jest.fn(set => state)
-			};
-		};
 		const props = {
 			title: 'titleText',
 			list: [],
 			loadList: jest.fn(() => []),
 			columns: [],
 			buttons: [
-					btnFn('Edit', false, {}), 
-					btnFn('Create', true, {})
+					new SelectionButton('Edit', 'path', jest.fn(sel => false), jest.fn(() => {return {}})), 
+					new SelectionButton('Create', 'path', jest.fn(sel => true), jest.fn(() => {return {}}))
 				]
 		};
 		const wrapper = shallow( <SelectionComponent {...props} /> );
@@ -58,21 +44,14 @@ describe('<SelectionComponent /> rendering', () => {
 	});
 	
 	it('renders nothing for when no title is supplied', () => {
-		const btnFn = (text, condition, state) => {
-			return {
-				text: text,
-				condition: jest.fn(sel => condition),
-				stateFn: jest.fn(set => state)
-			};
-		};
 		const props = {
 			title: 'titleText',
 			list: [],
 			loadList: jest.fn(() => []),
 			columns: [],
 			buttons: [
-					btnFn('Edit', true, {}), 
-					btnFn('Create', true, {})
+					new SelectionButton('Edit', 'path', jest.fn(sel => true), jest.fn(() => {return {}})), 
+					new SelectionButton('Create', 'path', jest.fn(sel => true), jest.fn(() => {return {}}))
 				]
 		};
 		const wrapper = shallow( <SelectionComponent {...props} /> );
@@ -88,13 +67,6 @@ describe('<SelectionComponent /> rendering', () => {
 	});
 		
 	it('renders table with details', () => {
-		const btnFn = (text, condition, state) => {
-			return {
-				text: text,
-				condition: jest.fn(sel => condition),
-				stateFn: jest.fn(set => state)
-			};
-		};
 		const props = {
 			title: 'titleText',
 			list: [
@@ -107,8 +79,8 @@ describe('<SelectionComponent /> rendering', () => {
 					{fieldName: 'num', name: 'Number'}
 				],
 			buttons: [
-					btnFn('Edit', true, {}), 
-					btnFn('Create', true, {})
+					new SelectionButton('Edit', 'path', jest.fn(sel => true), jest.fn(() => {return {}})), 
+					new SelectionButton('Create', 'path', jest.fn(sel => true), jest.fn(() => {return {}}))
 				]
 		};
 		const wrapper = shallow( <SelectionComponent {...props} /> );
@@ -121,13 +93,6 @@ describe('<SelectionComponent /> rendering', () => {
 	});
 	
 	it('re-runs button condition when selecting record in table', () => {
-		const btnFn = (text, condition, state) => {
-			return {
-				text: text,
-				condition: jest.fn(condition),
-				stateFn: jest.fn(set => state)
-			};
-		};
 		const props = {
 			title: 'titleText',
 			list: [
@@ -140,10 +105,8 @@ describe('<SelectionComponent /> rendering', () => {
 					{fieldName: 'num', name: 'Number'}
 				],
 			buttons: [
-					btnFn('Edit', sel => {
-						return sel.getSelectedCount() > 0
-					}, {}), 
-					btnFn('Create', sel => true, {})
+					new SelectionButton('Edit', 'path', jest.fn(sel => sel.getSelectedCount() > 0), jest.fn(() => {return {}})), 
+					new SelectionButton('Create', 'path', jest.fn(sel => true), jest.fn(() => {return {}}))
 				]
 		};
 		const wrapper = shallow( <SelectionComponent {...props} /> );
