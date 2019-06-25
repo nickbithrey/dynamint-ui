@@ -3,13 +3,6 @@ import { shallow } from 'enzyme';
 
 import Field from '~/lib/Field';
 
-const Record = props => (
-	<tr>
-		<td>{props.reference}</td>
-		<td>{props.description}</td>
-	</tr>
-);
-
 describe('<Field /> rendering', () => {
 
 	it('can render text field', () => {

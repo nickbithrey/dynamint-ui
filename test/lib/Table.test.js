@@ -3,13 +3,6 @@ import { shallow } from 'enzyme';
 
 import Table from '~/lib/Table';
 
-const Record = props => (
-	<tr>
-		<td>{props.reference}</td>
-		<td>{props.description}</td>
-	</tr>
-);
-
 describe('<Table /> rendering', () => {
 
 	it('can render standard table with records', () => {
@@ -26,7 +19,7 @@ describe('<Table /> rendering', () => {
 	
 	it('can render empty table when no values passed into the list', () => {
 		const load = jest.fn(() => []);
-		const wrapper = shallow( <Table list={[]} load={load} tag={Record} /> );
+		const wrapper = shallow( <Table list={[]} load={load} /> );
 
 		expect(wrapper.find('StyledWithViewportComponent')).toHaveLength(0);
 		
@@ -41,7 +34,7 @@ describe('<Table /> rendering', () => {
 			{}
 		]
 		const load = jest.fn(() => []);
-		const wrapper = shallow( <Table list={list} load={load} tag={Record} /> );
+		const wrapper = shallow( <Table list={list} load={load} /> );
 		
 		expect(wrapper.find('StyledWithViewportComponent')).toHaveLength(1);
 		const listProps = wrapper.find('StyledWithViewportComponent').props();
@@ -51,14 +44,14 @@ describe('<Table /> rendering', () => {
 		
 	it('calls load function when list is undefined on mount', () => {
 		const load = jest.fn(() => []);
-		const wrapper = shallow( <Table load={load} tag={Record} /> );
+		const wrapper = shallow( <Table load={load} /> );
 		
 		expect(wrapper.instance().props.load).toBeCalled();
 	});
 		
 	it('calls load function when list is undefined on update', () => {
 		const load = jest.fn(() => []);
-		const wrapper = shallow( <Table list={[]} load={load} tag={Record} /> );
+		const wrapper = shallow( <Table list={[]} load={load} /> );
 
 		// assert load not called already on mount (as list is defined)
 		expect(wrapper.instance().props.load).not.toBeCalled();
