@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '~/lib/Button';
 import Field from '~/lib/Field';
 import { Stack } from 'office-ui-fabric-react/lib/Stack';
-import { GroupedList, IGroup, IGroupHeaderProps, IGroupFooterProps } from 'office-ui-fabric-react/lib/GroupedList';
+import { List } from 'office-ui-fabric-react/lib/List';
 import { Link } from 'office-ui-fabric-react/lib/Link';
 
 export default class ModelAttribute extends React.Component {
@@ -62,13 +62,9 @@ export default class ModelAttribute extends React.Component {
 	render() {
 		return (
 			<div>
-				<GroupedList
+				<List
 			        items={this.props.attributes}
 			        onRenderCell={this.renderCell}
-			        groupProps={{
-			        	onRenderHeader: this.renderHeader
-			        }}
-			        groups={this.state.groups}
 			    />
 				<Button text="Add Attribute" onClick={this.addAttr} />
 			</div>
@@ -85,9 +81,10 @@ export default class ModelAttribute extends React.Component {
 	    );
 	}
 	
-	renderCell(depth, item, index) {
+	renderCell(item, index) {
 		return (
 			<Stack>
+				<h1>Attribute {item.name}</h1>
 				<Field label="name" value={item.name} update={this.updateAttrField} name="name" data-index={index} />
 				<Field label="type" value={item.type} update={this.updateAttrField} name="type" data-index={index} />
 				<Field checkbox label="required" value={item.required} update={this.updateAttrField} name="required" data-index={index} />
