@@ -6,7 +6,7 @@ export const LOAD_MODELS = 'LOAD_MODELS';
 
 
 export const load = () => apiRequest('LOAD_MODELS', 
-		'http://localhost:9999/dynamint/api/v1/modelComponents', 
+		'http://localhost:9999/dynamint/api/v1/componentConfigurations', 
 		'GET', 
 		null,
 		() => { return {type: 'LOAD_MODELS_REQUEST'} },

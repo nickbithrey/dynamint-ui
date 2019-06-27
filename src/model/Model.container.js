@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Mdl from './Model';
-import { 
-	load
-} from './action';
 
 const mapStateToProps = (state = {}) => {
 	return state;

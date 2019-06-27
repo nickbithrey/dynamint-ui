@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import MdlSelection from './ModelSelection';
 import { 
 	load
-} from '../action';
+} from './action';
 
 const mapStateToProps = (state = {}) => {
 	return state;

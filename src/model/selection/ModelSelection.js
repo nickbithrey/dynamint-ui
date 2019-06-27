@@ -1,20 +1,42 @@
 import React from 'react';
-import ModelRecord from './ModelRecord';
-import Table from '~/lib/Table';
-import { Link } from 'react-router-dom';
+import SelectionComponent, { SelectionButton, alwaysShow, hasSelection } from '~/lib/SelectionComponent';
+import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
+
+const initModel = {};
+
+const classNames = mergeStyleSets({
+  hidden: {
+    selectors: {
+      '&:before': {
+    	  width: '0px',
+    	  visibility: 'hidden'
+      }
+    }
+  }
+});
 
 
-export const ModelSelection = ({load, models = {models:null}}) => (
-	<div>
-		<h1>Models</h1>
-		<Table list={models.models} load={load} tag={ModelRecord}></Table>
-		<Link to={{
-			pathname: "/models/create",
-			state: {}}}>Create</Link>
-		<Link to={{
-			pathname: "/models/edit",
-			state: {id: 1}}}>Edit</Link>
-	</div>
+const columns = [
+    {key: 'reference', name: 'Reference', fieldName: 'reference', minWidth: 50, maxWidth: 150},
+    {key: 'componentType', name: 'Type', fieldName: 'componentType', maxWidth: 50},
+    {key: 'description', name: 'Description', fieldName: 'description', minWidth: 500}
+];
+
+export const ModelSelection = ({load, models = initModels}) => (
+	<SelectionComponent 
+		title={'Models'}
+		list={models.models}
+		loadList={load}
+		columns={columns}
+		buttons={[new SelectionButton('Edit', '/models/edit', hasSelection, getUriFromSelection), new SelectionButton('Create', '/models/create')]}
+	/>
 );
+
+const getUriFromSelection = selectionDetails => {
+	return {
+		id: selectionDetails.getSelection()[0].reference,
+		uri: selectionDetails.getSelection()[0].uri
+	}
+}
 
 export default ModelSelection;

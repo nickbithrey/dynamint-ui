@@ -5,7 +5,8 @@ import {
 	load,
 	update,
 	create,
-	clear
+	clear,
+	updateField
 } from './action';
 
 const mapStateToProps = (state = {}) => {
@@ -27,6 +28,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		clear: () => {
 			dispatch(clear());
+		},
+		updateField: field => {
+			dispatch(updateField(field));
 		}
 	}
 }

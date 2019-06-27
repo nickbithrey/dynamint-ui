@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { DetailsList, DetailsListLayoutMode, SelectionMode } from 'office-ui-fabric-react/lib/DetailsList';
 
 export default class Table extends React.Component {
 	
@@ -25,17 +26,27 @@ export default class Table extends React.Component {
 	render() {
 		let {
 			list,
-			tag: Record
+			columns
 		} = this.props;
-		if (!list) {
+		
+		if (!list || list.length === 0) {
 			return <h1>no data</h1>
 		}
 		return (
-			<table>
-				<tbody>
-					{list.map((row,i) => <Record key={i} {...row}></Record>)}
-				</tbody>
-			</table>
+			<DetailsList
+	            items={list}
+	            compact={false}
+	            columns={columns}
+	            selectionMode={SelectionMode.single}
+	            setKey="set"
+	            layoutMode={DetailsListLayoutMode.justified}
+	            isHeaderVisible={true}
+				selection={this.props.selection}
+	            selectionPreservedOnEmptyClick={true}
+	            enterModalSelectionOnTouch={true}
+	            ariaLabelForSelectionColumn="Toggle selection"
+	            ariaLabelForSelectAllCheckbox="Toggle selection for all items"
+	          />
 		);
 	}
 	
@@ -43,6 +54,7 @@ export default class Table extends React.Component {
 
 Table.propTypes = {
 	load: PropTypes.func.isRequired,
-	list: PropTypes.arrayOf(PropTypes.object),
-	tag: PropTypes.oneOfType([PropTypes.func,PropTypes.element,PropTypes.string]).isRequired
+	list: PropTypes.arrayOf(PropTypes.object)
 }
+
+

@@ -3,7 +3,6 @@ import ModelSelection from './selection';
 import ModelDetails from './details';
 import { Route, Switch } from 'react-router-dom';
 
-
 export const Model = ({load, create, models = {models:null}}) => (
 	<div>
 		<Switch>

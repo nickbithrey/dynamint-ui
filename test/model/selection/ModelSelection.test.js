@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import ModelSelection from '~/model/selection/ModelSelection';
-import TableRow from '~/lib/TableRow';
 
 describe('<ModelSelection /> rendering', () => {
 
@@ -11,7 +10,7 @@ describe('<ModelSelection /> rendering', () => {
 			load: jest.fn(() => []), 
 			models: {
 				models: [
-					{col1: 'col1'}
+					{reference: 'reference', description: 'description', componentType: 'type'}
 				]
 			}
 		};
@@ -19,5 +18,5 @@ describe('<ModelSelection /> rendering', () => {
 		
 		expect(wrapper).toMatchSnapshot();
 	});
-	
+		
 });
