@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text /> rendering can render text field 1`] = `
+<StyledTextFieldBase
+  defaultValue="value"
+  label="label"
+  onBlur={[Function]}
+/>
+`;

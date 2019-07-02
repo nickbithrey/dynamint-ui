@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MenuPage /> rendering matches snapshot 1`] = `
+<div>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      key="/compconfig"
+      path="/compconfig"
+    />
+    <Route
+      component={[Function]}
+      exact={false}
+      key="/compconfig/:type"
+      path="/compconfig/:type"
+    />
+  </Switch>
+</div>
+`;

@@ -29,9 +29,9 @@ export const Navigation = ({history}) => {
 		   link: '/'
         },
         {
-        	key: 'models',
-        	name: 'Models',
-        	link: '/models'
+        	key: 'configs',
+        	name: 'Configurations',
+        	link: '/compconfigs'
         }
         ]
       }]}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { MenuPage } from '~/lib/MenuPage';
+import MenuPage from '~/lib/MenuPage';
 
 const Selection = () => <h1>Selection</h1>;
 const Details = () => <h1>Details</h1>;

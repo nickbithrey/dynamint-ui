@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 import store from './redux/store';
 
-import Model from './model';
+import CompConfig from './componentconfiguration';
 import Nav from './nav';
 import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
 import { Stack } from 'office-ui-fabric-react/lib/Stack';
@@ -31,7 +31,7 @@ const App = (props) => {
 					<Nav history={props.history} />
 				</Stack.Item>	
 				<Stack.Item grow>	
-					<Route path="/models" component={Model} store={store}></Route>
+					<Route path="/compconfigs" component={CompConfig} store={store}></Route>
 				</Stack.Item>
 			</Stack>
 		</div>

@@ -52,7 +52,6 @@ export default class SelectionComponent extends React.Component {
 	}
 	
 	renderButton(btn, i) {
-		console.log(btn);
 		let to = {
 			pathname: btn.pathname,
 			state: btn.stateFn(this.selection)
