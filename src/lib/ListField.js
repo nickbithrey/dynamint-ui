@@ -93,9 +93,9 @@ export default class ListField extends React.Component {
 		}
 	
 	renderRow(fieldUpdate, tag) {
-		const Tag = listUpdate(tag);
 		return function(props) {
 			if (props.selection.getSelectedIndices().includes(props.itemIndex)) {
+				const Tag = listUpdate(tag);
 				return (
 					<div>
 						<DetailsRow {...props} />
