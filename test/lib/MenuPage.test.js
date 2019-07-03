@@ -27,7 +27,13 @@ describe('<MenuPage /> rendering', () => {
 
 		const switchWrapper = wrapper.find('Switch');
 		expect(switchWrapper).toHaveLength(1);
-		expect(switchWrapper.find('Route')).toHaveLength(routes.length);
+		const routeWrappers = switchWrapper.find('Route');
+		expect(routeWrappers).toHaveLength(routes.length);
+		routes.forEach((r,i) => {
+			expect(routeWrappers.at(i).prop('path')).toBe(r.path);
+			expect(routeWrappers.at(i).prop('exact')).toBe(r.exact);
+			expect(routeWrappers.at(i).prop('component')).toBe(r.component);
+		})
 	});
 		
 });

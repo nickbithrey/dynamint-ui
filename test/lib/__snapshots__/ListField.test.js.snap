@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListField /> rendering doesn't render details of row when unselected 1`] = `
+<StyledDetailsRowBase
+  itemIndex={1}
+  selection={
+    Selection {
+      "_anchoredIndex": 0,
+      "_canSelectItem": [Function],
+      "_changeEventSuppressionCount": 0,
+      "_exemptedCount": 0,
+      "_exemptedIndices": Object {},
+      "_getKey": [Function],
+      "_isModal": false,
+      "_items": Array [],
+      "_keyToIndexMap": Object {},
+      "_onSelectionChanged": [Function],
+      "_selectedIndices": Array [],
+      "_selectedItems": null,
+      "_unselectableCount": 0,
+      "_unselectableIndices": Object {},
+      "count": 0,
+      "mode": 2,
+    }
+  }
+/>
+`;
+
+exports[`<ListField /> rendering matches snapshot 1`] = `
+<div>
+  <StyledWithViewportComponent
+    ariaLabelForSelectAllCheckbox="Toggle selection for all items"
+    ariaLabelForSelectionColumn="Toggle selection"
+    columns={
+      Array [
+        Object {
+          "fieldName": "field1",
+          "key": "field1",
+          "name": "Field 1",
+        },
+        Object {
+          "fieldName": "field2",
+          "key": "field2",
+          "name": "Field 2",
+        },
+      ]
+    }
+    compact={false}
+    enterModalSelectionOnTouch={true}
+    isHeaderVisible={true}
+    items={
+      Array [
+        Object {
+          "field1": "val11",
+          "field2": "val12",
+        },
+        Object {
+          "field1": "val21",
+          "field2": "val22",
+        },
+      ]
+    }
+    layoutMode={1}
+    onRenderItemColumn={[Function]}
+    onRenderRow={[Function]}
+    selection={
+      Selection {
+        "_anchoredIndex": 0,
+        "_canSelectItem": [Function],
+        "_changeEventSuppressionCount": 0,
+        "_exemptedCount": 0,
+        "_exemptedIndices": Object {},
+        "_getKey": [Function],
+        "_isModal": false,
+        "_items": Array [],
+        "_keyToIndexMap": Object {},
+        "_onSelectionChanged": [Function],
+        "_selectedItems": null,
+        "_unselectableCount": 0,
+        "_unselectableIndices": Object {},
+        "count": 0,
+        "mode": 2,
+      }
+    }
+    selectionMode={1}
+    selectionPreservedOnEmptyClick={true}
+    setKey="set"
+  />
+  <Button
+    onClick={[Function]}
+    text="Add"
+  />
+</div>
+`;
+
+exports[`<ListField /> rendering renders details of row when selected 1`] = `
+<div>
+  <StyledDetailsRowBase
+    itemIndex={1}
+    selection={
+      Selection {
+        "_anchoredIndex": 1,
+        "_canSelectItem": [Function],
+        "_changeEventSuppressionCount": 0,
+        "_exemptedCount": 1,
+        "_exemptedIndices": Object {
+          "1": true,
+        },
+        "_getKey": [Function],
+        "_hasChanged": false,
+        "_isModal": false,
+        "_items": Array [
+          Object {
+            "field1": "val11",
+            "field2": "val12",
+          },
+          Object {
+            "field1": "val21",
+            "field2": "val22",
+          },
+        ],
+        "_keyToIndexMap": Object {},
+        "_onSelectionChanged": [Function],
+        "_selectedIndices": Array [
+          1,
+        ],
+        "_selectedItems": null,
+        "_unselectableCount": 0,
+        "_unselectableIndices": Object {},
+        "count": 1,
+        "mode": 2,
+      }
+    }
+  />
+  <ListUpdate
+    fieldUpdate={[MockFunction]}
+    itemIndex={1}
+    selection={
+      Selection {
+        "_anchoredIndex": 1,
+        "_canSelectItem": [Function],
+        "_changeEventSuppressionCount": 0,
+        "_exemptedCount": 1,
+        "_exemptedIndices": Object {
+          "1": true,
+        },
+        "_getKey": [Function],
+        "_hasChanged": false,
+        "_isModal": false,
+        "_items": Array [
+          Object {
+            "field1": "val11",
+            "field2": "val12",
+          },
+          Object {
+            "field1": "val21",
+            "field2": "val22",
+          },
+        ],
+        "_keyToIndexMap": Object {},
+        "_onSelectionChanged": [Function],
+        "_selectedIndices": Array [
+          1,
+        ],
+        "_selectedItems": null,
+        "_unselectableCount": 0,
+        "_unselectableIndices": Object {},
+        "count": 1,
+        "mode": 2,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`<ListUpdate /> rendering matches snapshot 1`] = `
+<div>
+  <Tag
+    updateField={[Function]}
+  />
+  <Button
+    onClick={[Function]}
+    text="Submit"
+  />
+</div>
+`;

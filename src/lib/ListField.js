@@ -24,7 +24,6 @@ export default class ListField extends React.Component {
 	
 	getSelectionDetails() {
 		if (this.selection.getSelectedCount() > 0) {
-			console.log('selection ' + this.selection)
 			this.setState({
 				index: this.selection.getSelectedCount()
 			});
@@ -110,7 +109,7 @@ export default class ListField extends React.Component {
 	
 }
 
-function listUpdate(WrappedComponent) {
+export function listUpdate(WrappedComponent) {
 	return class ListUpdate extends React.Component {
 		constructor(props) {
 			super(props);
