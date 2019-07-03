@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Field from './Field';
 import Button from '~/lib/Button';
+import { Rowise, Block } from '~/lib/Grid';
 import { DetailsList, DetailsRow, DetailsListLayoutMode, SelectionMode, Selection } from 'office-ui-fabric-react/lib/DetailsList';
 import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
 
@@ -60,23 +61,29 @@ export default class ListField extends React.Component {
 		} = this.props;
 		return (
 			<div>
-				<DetailsList
-					items={[...value]}
-				    compact={false}
-				    columns={columns}
-				    selectionMode={SelectionMode.single}
-				    setKey="set"
-				    layoutMode={DetailsListLayoutMode.justified}
-				    isHeaderVisible={true}
-					onRenderItemColumn={this.renderColumn}
-					onRenderRow={this.renderRow(this.update, this.props.tag)}
-				    selectionPreservedOnEmptyClick={true}
-					selection={this.selection}
-				    enterModalSelectionOnTouch={true}
-				    ariaLabelForSelectionColumn="Toggle selection"
-				    ariaLabelForSelectAllCheckbox="Toggle selection for all items"
-			    />
-				<Button text="Add" onClick={this.addElement} />
+				<Rowise tokens={{childrenGap: 5}}>
+					<Block>
+						<DetailsList
+							items={[...value]}
+						    compact={false}
+						    columns={columns}
+						    selectionMode={SelectionMode.single}
+						    setKey="set"
+						    layoutMode={DetailsListLayoutMode.justified}
+						    isHeaderVisible={true}
+							onRenderItemColumn={this.renderColumn}
+							onRenderRow={this.renderRow(this.update, this.props.tag)}
+						    selectionPreservedOnEmptyClick={true}
+							selection={this.selection}
+						    enterModalSelectionOnTouch={true}
+						    ariaLabelForSelectionColumn="Toggle selection"
+						    ariaLabelForSelectAllCheckbox="Toggle selection for all items"
+					    />
+					</Block>
+					<Block>
+						<Button text="Add" onClick={this.addElement} />
+					</Block>
+				</Rowise>
 			</div>
 		)
 	}
@@ -133,8 +140,14 @@ export function listUpdate(WrappedComponent) {
 		render() {
 			return (
 				<div>
-					<WrappedComponent updateField={this.updateField} {...this.state} />
-					<Button text="Submit" onClick={this.update} />
+					<Rowise>
+						<Block>
+							<WrappedComponent updateField={this.updateField} {...this.state} />
+						</Block>
+						<Block>
+							<Button text="Submit" onClick={this.update} />
+						</Block>
+					</Rowise>
 				</div>
 			)
 		}

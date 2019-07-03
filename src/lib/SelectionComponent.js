@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Table from '~/lib/Table';
+import Table from './Table';
 import { Link } from 'react-router-dom';
-import Button from '~/lib/Button';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import Button from './Button';
+import { Columnar, Rowise, Block } from './Grid';
 import { MarqueeSelection } from 'office-ui-fabric-react/lib/MarqueeSelection';
 import { Selection } from 'office-ui-fabric-react/lib/DetailsList';
 
@@ -57,7 +57,9 @@ export default class SelectionComponent extends React.Component {
 			state: btn.stateFn(this.selection)
 		};
 		return (
-			<Link key={i} to={to}><Button text={btn.text} /></Link>
+			<Block key={i}>
+				<Link to={to}><Button text={btn.text} /></Link>
+			</Block>
 		);
 	}
 	
@@ -72,12 +74,16 @@ export default class SelectionComponent extends React.Component {
 		return (
 			<div>
 				{this.renderTitle(title)}
-				{this.renderSelectionTable(list, loadList, columns)}
-				<Stack horizontalAlign={'end'}>
-					<Stack horizontal tokens={{childrenGap: 5}} horizontal-align="space-between">
-						{this.renderButtons(buttons)}
-					</Stack>
-				</Stack>
+				<Rowise tokens={{childrenGap: 10}}>
+					<Block>
+						{this.renderSelectionTable(list, loadList, columns)}
+					</Block>
+					<Block>
+						<Columnar horizontalAlign={'end'} tokens={{childrenGap: 5}}>
+							{this.renderButtons(buttons)}
+						</Columnar>
+					</Block>
+				</Rowise>
 			</div>
 		);
 	}

@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 
@@ -11,7 +11,7 @@ import store from './redux/store';
 import CompConfig from './componentconfiguration';
 import Nav from './nav';
 import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { Columnar, Block } from '~/lib/Grid';
 
 initializeIcons();
 
@@ -26,14 +26,14 @@ const App = (props) => {
 		    };
 	return (
 		<div>
-			<Stack horizontal tokens={tokens.headingStack} horizontalAlign="space-between">
-				<Stack.Item>
+			<Columnar tokens={tokens.headingStack}>
+				<Block>
 					<Nav history={props.history} />
-				</Stack.Item>	
-				<Stack.Item grow>	
+				</Block>	
+				<Block grow>	
 					<Route path="/compconfigs" component={CompConfig} store={store}></Route>
-				</Stack.Item>
-			</Stack>
+				</Block>
+			</Columnar>
 		</div>
 	);
 };

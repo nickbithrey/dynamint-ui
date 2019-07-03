@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '~/lib/Button';
 import Loading from '~/lib/Loading';
+import { Rowise, Block } from '~/lib/Grid';
 
 const detailsComponent = (WrappedComponent) => {
 	class DetailsComponent extends React.Component {
@@ -52,8 +53,14 @@ const detailsComponent = (WrappedComponent) => {
 			return (
 				<div>
 					{this.renderTitle()}
-					<WrappedComponent fieldUpdate={this.handleUpdateField} update={this.handleUpdate} {...remainingProps} />
-					{this.renderBackBtn()}
+					<Rowise tokens={{childrenGap: 5}}>
+						<Block>
+							<WrappedComponent fieldUpdate={this.handleUpdateField} update={this.handleUpdate} {...remainingProps} />
+						</Block>
+						<Block>
+							{this.renderBackBtn()}
+						</Block>
+					</Rowise>
 				</div>
 			);
 		}
