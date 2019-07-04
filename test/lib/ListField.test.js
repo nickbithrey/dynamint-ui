@@ -121,6 +121,7 @@ describe('<ListUpdate /> rendering', () => {
 	let wrapper;
 	
 	beforeEach(() => {
+		props.fieldUpdate.mockReset();
 		const Component = listUpdate(Tag);
 		wrapper = shallow(<Component {...props} />);
 	})
@@ -129,17 +130,32 @@ describe('<ListUpdate /> rendering', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 		
-	it('calls update prop function on submit button click', () => {
-		expect(props.fieldUpdate.mock.calls).toHaveLength(0);
+	it('update method on first button calls props update', () => {
+		const state = {key: 'val'};
+		wrapper.setState(state);
+		const buttons = wrapper.find('ButtonsContainer').prop('buttons');
 		const event = {
 			preventDefault: () => []
 		}
+		expect(buttons[0].onClick).toBe(wrapper.instance().update);
+		buttons[0].onClick(event)
+		expect(props.fieldUpdate.mock.calls).toHaveLength(1);
+		expect(props.fieldUpdate.mock.calls[0][0]).toBe(props.itemIndex);
+		expect(props.fieldUpdate.mock.calls[0][1]).toEqual(state);
+	});
+	
+	it('remove method on second button calls props update', () => {
 		const state = {key: 'val'};
 		wrapper.setState(state);
-		wrapper.find('Button').simulate('click', event);
+		const buttons = wrapper.find('ButtonsContainer').prop('buttons');
+		const event = {
+			preventDefault: () => []
+		}
+		expect(buttons[1].onClick).toBe(wrapper.instance().remove);
+		buttons[1].onClick(event)
 		expect(props.fieldUpdate.mock.calls).toHaveLength(1);
-		expect(props.fieldUpdate.mock.calls[0][0]).toEqual(state);
-		expect(props.fieldUpdate.mock.calls[0][1]).toBe(props.itemIndex);
+		expect(props.fieldUpdate.mock.calls[0][0]).toBe(props.itemIndex);
+		expect(props.fieldUpdate.mock.calls[0][1]).toEqual(undefined);
 	});
 	
 });

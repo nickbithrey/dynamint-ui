@@ -39,18 +39,6 @@ describe('<ComponentConfigurationDetails /> rendering', () => {
 	it('matches snapshot', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
-		
-	it('calls update prop on save button', () => {
-		expect(props.update.mock.calls).toHaveLength(0);
-
-		const button = wrapper.find('Button');
-		const event = {
-			preventDefault: () => []
-		};
-		button.simulate('click', event);
-		expect(props.update.mock.calls).toHaveLength(1);
-		expect(props.update.mock.calls[0][0]).toBe(event);
-	});
 	
 	it('has all fields using fieldUpdate for update method', () => {
 		wrapper.find('Field').forEach(f => {

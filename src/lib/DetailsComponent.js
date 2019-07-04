@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '~/lib/Button';
+import { newBtn, newPrimaryBtn } from '~/lib/Button';
 import Loading from '~/lib/Loading';
 import { Rowise, Block } from '~/lib/Grid';
+import ButtonsContainer from '~/lib/ButtonsContainer';
 
 const detailsComponent = (WrappedComponent) => {
 	class DetailsComponent extends React.Component {
@@ -11,7 +12,8 @@ const detailsComponent = (WrappedComponent) => {
 			super(props);
 			this.load = this.load.bind(this);
 			this.renderTitle = this.renderTitle.bind(this);
-			this.renderBackBtn = this.renderBackBtn.bind(this);
+			this.createBackBtn = this.createBackBtn.bind(this);
+			this.createSaveBtn = this.createSaveBtn.bind(this);
 			this.back = this.back.bind(this);
 			this.handleUpdateField = this.handleUpdateField.bind(this);
 			this.handleUpdate = this.handleUpdate.bind(this);
@@ -41,6 +43,10 @@ const detailsComponent = (WrappedComponent) => {
 			this.back();
 		}
 		
+		createSaveBtn() {
+			return newPrimaryBtn('Save', this.handleUpdate);
+		}
+		
 		render() {
 			if (this.props.loading || !this.props.record) {
 				return <Loading />
@@ -58,7 +64,7 @@ const detailsComponent = (WrappedComponent) => {
 							<WrappedComponent fieldUpdate={this.handleUpdateField} update={this.handleUpdate} {...remainingProps} />
 						</Block>
 						<Block>
-							{this.renderBackBtn()}
+							<ButtonsContainer buttons={[this.createSaveBtn(), this.createBackBtn()]} />
 						</Block>
 					</Rowise>
 				</div>
@@ -79,10 +85,8 @@ const detailsComponent = (WrappedComponent) => {
 			history.goBack();
 		}
 		
-		renderBackBtn() {
-			return (
-				<Button text="Back" onClick={this.back} />
-			);
+		createBackBtn() {
+			return newBtn('Back', this.back);
 		}
 		
 	}

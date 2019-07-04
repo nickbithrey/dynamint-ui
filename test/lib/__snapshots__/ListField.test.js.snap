@@ -97,8 +97,10 @@ exports[`<ListField /> rendering matches snapshot 1`] = `
     </Block>
     <Block>
       <Button
+        condition={[Function]}
         onClick={[Function]}
         text="Add"
+        type="standard"
       />
     </Block>
   </Rowise>
@@ -187,16 +189,36 @@ exports[`<ListField /> rendering renders details of row when selected 1`] = `
 
 exports[`<ListUpdate /> rendering matches snapshot 1`] = `
 <div>
-  <Rowise>
+  <Rowise
+    tokens={
+      Object {
+        "childrenGap": 5,
+      }
+    }
+  >
     <Block>
       <Tag
         updateField={[Function]}
       />
     </Block>
     <Block>
-      <Button
-        onClick={[Function]}
-        text="Submit"
+      <ButtonsContainer
+        buttons={
+          Array [
+            Object {
+              "condition": [Function],
+              "onClick": [Function],
+              "text": "Submit",
+              "type": "primary",
+            },
+            Object {
+              "condition": [Function],
+              "onClick": [Function],
+              "text": "Remove",
+              "type": "standard",
+            },
+          ]
+        }
       />
     </Block>
   </Rowise>

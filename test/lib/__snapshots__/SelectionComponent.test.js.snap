@@ -71,10 +71,9 @@ exports[`<SelectionComponent /> rendering can render standard component with rec
           }
         }
       >
-        <Block
-          key="0"
-        >
+        <ButtonsContainer>
           <Link
+            key="0"
             replace={false}
             to={
               Object {
@@ -85,13 +84,11 @@ exports[`<SelectionComponent /> rendering can render standard component with rec
           >
             <Button
               text="Edit"
+              type="standard"
             />
           </Link>
-        </Block>
-        <Block
-          key="1"
-        >
           <Link
+            key="1"
             replace={false}
             to={
               Object {
@@ -102,9 +99,10 @@ exports[`<SelectionComponent /> rendering can render standard component with rec
           >
             <Button
               text="Create"
+              type="standard"
             />
           </Link>
-        </Block>
+        </ButtonsContainer>
       </Columnar>
     </Block>
   </Rowise>

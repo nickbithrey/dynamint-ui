@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Field from './Field';
-import Button from '~/lib/Button';
+import Button, { newBtn, newPrimaryBtn } from '~/lib/Button';
+import ButtonsContainer from '~/lib/ButtonsContainer';
 import { Rowise, Block } from '~/lib/Grid';
 import { DetailsList, DetailsRow, DetailsListLayoutMode, SelectionMode, Selection } from 'office-ui-fabric-react/lib/DetailsList';
 import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
@@ -32,9 +33,13 @@ export default class ListField extends React.Component {
 		}
 	}
 	
-	update(element, index) {
+	update(index, element) {
 		const list = [...this.props.value];
-		list[index] = element;
+		if (element) {
+			list[index] = element;
+		} else {
+			list.splice(index, 1);
+		}
 		this.props.update({
 			name: this.props.name,
 			value: list
@@ -81,7 +86,7 @@ export default class ListField extends React.Component {
 					    />
 					</Block>
 					<Block>
-						<Button text="Add" onClick={this.addElement} />
+						<Button {...newBtn('Add', this.addElement)} />
 					</Block>
 				</Rowise>
 			</div>
@@ -121,14 +126,21 @@ export function listUpdate(WrappedComponent) {
 		constructor(props) {
 			super(props);
 			this.update = this.update.bind(this);
+			this.remove = this.remove.bind(this);
 			this.updateField = this.updateField.bind(this);
+			this.buildButtons = this.buildButtons.bind(this);
 			this.index = props.itemIndex;
 			this.state = {...props.item};
 		}
 		
 		update(e) {
 			e.preventDefault();
-			this.props.fieldUpdate(this.state, this.index);
+			this.props.fieldUpdate(this.index, this.state);
+		}
+		
+		remove(e) {
+			e.preventDefault();
+			this.props.fieldUpdate(this.index);
 		}
 		
 		updateField({name, value}) {
@@ -137,15 +149,22 @@ export function listUpdate(WrappedComponent) {
 			});
 		}
 		
+		buildButtons() {
+			return [
+				newPrimaryBtn('Submit', this.update),
+				newBtn('Remove', this.remove)
+			];
+		}
+		
 		render() {
 			return (
 				<div>
-					<Rowise>
+					<Rowise tokens={{childrenGap: 5}}>
 						<Block>
 							<WrappedComponent updateField={this.updateField} {...this.state} />
 						</Block>
 						<Block>
-							<Button text="Submit" onClick={this.update} />
+							<ButtonsContainer buttons={this.buildButtons()} />
 						</Block>
 					</Rowise>
 				</div>

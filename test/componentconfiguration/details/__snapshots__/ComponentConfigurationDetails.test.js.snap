@@ -92,12 +92,6 @@ exports[`<ComponentConfigurationDetails /> rendering matches snapshot 1`] = `
         }
       />
     </Block>
-    <Block>
-      <Button
-        onClick={[MockFunction]}
-        text="Save"
-      />
-    </Block>
   </Rowise>
 </form>
 `;

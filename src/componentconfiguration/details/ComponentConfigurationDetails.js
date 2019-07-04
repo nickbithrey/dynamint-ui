@@ -39,9 +39,6 @@ const Details = ({record, error, fieldUpdate, update, location}) => {
 						newElement={newAttribute(location.state.uri, location.state.isCreate)}
 					/>
 				</Block>
-				<Block>
-					<Button text="Save" onClick={update} />
-				</Block>
 			</Rowise>
 		</form>
 	);

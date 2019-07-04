@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Table from './Table';
 import { Link } from 'react-router-dom';
 import Button from './Button';
+import ButtonsContainer from './ButtonsContainer';
 import { Columnar, Rowise, Block } from './Grid';
 import { MarqueeSelection } from 'office-ui-fabric-react/lib/MarqueeSelection';
 import { Selection } from 'office-ui-fabric-react/lib/DetailsList';
@@ -48,7 +49,11 @@ export default class SelectionComponent extends React.Component {
 	}
 
 	renderButtons(buttons = []) {
-		return buttons.map(btn => btn.build()).filter(btn => btn.condition(this.selection)).map(this.renderButton);
+		return (
+			<ButtonsContainer>
+				{buttons.map(btn => btn.build()).filter(btn => btn.condition(this.selection)).map(this.renderButton)}
+			</ButtonsContainer>
+		);
 	}
 	
 	renderButton(btn, i) {
@@ -56,11 +61,7 @@ export default class SelectionComponent extends React.Component {
 			pathname: btn.pathname,
 			state: btn.stateFn(this.selection)
 		};
-		return (
-			<Block key={i}>
-				<Link to={to}><Button text={btn.text} /></Link>
-			</Block>
-		);
+		return <Link key={i} to={to}><Button text={btn.text} /></Link>
 	}
 	
 	render() {
