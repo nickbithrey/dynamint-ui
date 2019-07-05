@@ -92,12 +92,15 @@ const detailsComponent = (WrappedComponent) => {
 	}
 
 	DetailsComponent.propTypes = {
-			load: PropTypes.func.isRequired,
-			loading: PropTypes.bool.isRequired,
-			history: PropTypes.object.isRequired,
-			record: PropTypes.object,
-			title: PropTypes.string.isRequired,
-			url: PropTypes.string
+		load: PropTypes.func.isRequired,
+		clear: PropTypes.func.isRequired,
+		update: PropTypes.func.isRequired,
+		updateField: PropTypes.func.isRequired,
+		loading: PropTypes.bool.isRequired,
+		history: PropTypes.object.isRequired,
+		record: PropTypes.object,
+		title: PropTypes.string.isRequired,
+		url: PropTypes.string
 	};
 	
 	return DetailsComponent;
