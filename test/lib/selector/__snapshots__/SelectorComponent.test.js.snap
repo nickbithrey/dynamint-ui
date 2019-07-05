@@ -2,11 +2,9 @@
 
 exports[`<SelectionComponent /> rendering can render standard component with records 1`] = `
 <div>
-  <div>
-    <h1>
-      titleText
-    </h1>
-  </div>
+  <SelectorTitle
+    title="titleText"
+  />
   <Rowise
     tokens={
       Object {
@@ -15,7 +13,10 @@ exports[`<SelectionComponent /> rendering can render standard component with rec
     }
   >
     <Block>
-      <StyledMarqueeSelectionBase
+      <SelectorTable
+        columns={Array []}
+        items={Array []}
+        load={[MockFunction]}
         selection={
           Selection {
             "_anchoredIndex": 0,
@@ -35,11 +36,34 @@ exports[`<SelectionComponent /> rendering can render standard component with rec
             "mode": 2,
           }
         }
+      />
+    </Block>
+    <Block>
+      <Columnar
+        horizontalAlign="end"
+        tokens={
+          Object {
+            "childrenGap": 5,
+          }
+        }
       >
-        <Table
-          columns={Array []}
-          list={Array []}
-          load={[MockFunction]}
+        <SelectorButtons
+          buttons={
+            Array [
+              SelectionButton {
+                "condition": [Function],
+                "path": "path/edit",
+                "stateFn": [Function],
+                "text": "Edit",
+              },
+              SelectionButton {
+                "condition": [Function],
+                "path": "path/create",
+                "stateFn": [Function],
+                "text": "Create",
+              },
+            ]
+          }
           selection={
             Selection {
               "_anchoredIndex": 0,
@@ -60,49 +84,6 @@ exports[`<SelectionComponent /> rendering can render standard component with rec
             }
           }
         />
-      </StyledMarqueeSelectionBase>
-    </Block>
-    <Block>
-      <Columnar
-        horizontalAlign="end"
-        tokens={
-          Object {
-            "childrenGap": 5,
-          }
-        }
-      >
-        <ButtonsContainer>
-          <Link
-            key="0"
-            replace={false}
-            to={
-              Object {
-                "pathname": "path",
-                "state": Object {},
-              }
-            }
-          >
-            <Button
-              text="Edit"
-              type="standard"
-            />
-          </Link>
-          <Link
-            key="1"
-            replace={false}
-            to={
-              Object {
-                "pathname": "path",
-                "state": Object {},
-              }
-            }
-          >
-            <Button
-              text="Create"
-              type="standard"
-            />
-          </Link>
-        </ButtonsContainer>
       </Columnar>
     </Block>
   </Rowise>
