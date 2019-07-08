@@ -4,6 +4,7 @@
   "description": "Generated with Eclipse npm Tools",
   "main": "webpack.config.js",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "cross-fetch": "^3.0.4",
     "jquery": "^3.4.1",
     "lodash.throttle": "^4.1.1",
@@ -23,7 +24,6 @@
   "devDependencies": {
     "@babel/core": "^7.0.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
