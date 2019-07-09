@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import '@babel/polyfill';
 
 import ButtonsContainer from '~/lib/ButtonsContainer';
 

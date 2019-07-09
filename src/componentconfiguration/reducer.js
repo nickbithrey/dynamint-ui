@@ -1,4 +1,9 @@
-import reducerRegistry, { ReducerRegistry as CompConfigReducerRegistry } from '~/redux/ReducerRegistry';
+import 
+	reducerRegistry, 
+	{ 
+		ReducerRegistry as CompConfigReducerRegistry 
+	} from '~/redux/ReducerRegistry';
+import '@babel/polyfill';
 
 export const compConfigReducerRegistry = new CompConfigReducerRegistry();
 

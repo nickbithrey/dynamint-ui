@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import '@babel/polyfill';
 
 import Field from '~/lib/Field';
 import fieldTypes from '~/lib/fieldtype';

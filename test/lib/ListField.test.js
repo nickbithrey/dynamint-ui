@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import '@babel/polyfill';
 
 import ListField, { listUpdate } from '~/lib/ListField';
 import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
