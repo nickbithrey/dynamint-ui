@@ -59,5 +59,10 @@ typings/
 
 # next.js build output
 .next
+
+# eclipse generated files
 /.settings/
 /.project
+
+# npm dist
+dist/
