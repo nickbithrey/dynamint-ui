@@ -1,102 +1,57 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import '@babel/polyfill';
 
 import Field from '~/lib/Field';
+import fieldTypes from '~/lib/fieldtype';
 
 describe('<Field /> rendering', () => {
-
-	it('can render text field', () => {
-		const props = {
-			name: 'name',
-			value: 'value',
-			update: jest.fn(() => []),
-			checkbox: false
-		};
-		const wrapper = shallow( <Field {...props} /> );
-		
-		expect(wrapper).toMatchSnapshot();
-	});
 	
-	it('can render checkbox field', () => {
+	it('will render all different field types', () => {
+		const props = {
+			name: 'name',
+			update: jest.fn(() => [])
+		};
+		
+		expect(Object.keys(fieldTypes)).not.toHaveLength(0);
+		Object.entries(fieldTypes).forEach(([key,value]) => {
+			props.type = key;
+			
+			const wrapper = shallow( <Field {...props} /> );
+			const child = wrapper.find(value);
+			expect(child).toHaveLength(1);
+			expect(child.children()).toHaveLength(0);
+			Object.values(fieldTypes)
+				.filter(v => v !== value)
+				.forEach(v => {
+					expect(wrapper.find(v)).toHaveLength(0);
+				});
+		});
+	});
+		
+	it('has default field type of text', () => {
 		const props = {
 			name: 'name',
 			value: 'value',
-			update: jest.fn(() => []),
-			checkbox: true
+			update: jest.fn(() => [])
+			// no type field
 		};
 		const wrapper = shallow( <Field {...props} /> );
 		
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.find('Text')).toHaveLength(1);
 	});
 		
-	it('renders no Checkbox when no checkbox parameter passed', () => {
+	test('update function will update based on the props', () => {
 		const props = {
 			name: 'name',
 			value: 'value',
 			update: jest.fn(() => [])
 		};
 		const wrapper = shallow( <Field {...props} /> );
-		
-		expect(wrapper.find('StyledCheckboxBase')).toHaveLength(0);
-		expect(wrapper.find('StyledTextFieldBase')).toHaveLength(1);
-	});
-		
-	it('updates state when changed', () => {
-		const props = {
-			name: 'name',
-			value: 'value',
-			update: jest.fn(() => [])
-		};
-		const wrapper = shallow( <Field {...props} /> );
-		
-		expect(wrapper.find('StyledTextFieldBase')).toHaveLength(1);
-		const event = {
-			preventDefault: () => [],
-			target: { value: 'newVal' }
-		};
-		wrapper.find('StyledTextFieldBase').simulate('change', event);
+
 		expect(wrapper.instance().props.update).not.toBeCalled();
-		expect(wrapper.state('value')).toBe('newVal');
-	});
-		
-	it('calls update function on unfocus of element (on blur)', () => {
-		const props = {
-			name: 'name',
-			value: 'value',
-			update: jest.fn(() => [])
-		};
-		const wrapper = shallow( <Field {...props} /> );
-		
-		expect(wrapper.find('StyledTextFieldBase')).toHaveLength(1);
-		expect(wrapper.find('StyledTextFieldBase').prop())
-		const event = {
-			preventDefault: () => []
-		};
-		wrapper.find('StyledTextFieldBase').simulate('blur', event);
+		wrapper.instance().update();
 		expect(wrapper.instance().props.update).toBeCalled();
-		expect(wrapper.instance().props.update.mock.calls.length).toBe(1);
-		expect(wrapper.instance().props.update.mock.calls[0][0]).toEqual({'name': 'value'});
-		expect(wrapper.instance().props.update.mock.calls[0][1]).toBe(event);
-	});
-		
-	it('calls update with current version of state', () => {
-		const props = {
-			name: 'name',
-			value: 'value',
-			update: jest.fn(() => [])
-		};
-		const wrapper = shallow( <Field {...props} /> );
-		
-		wrapper.setState({value: 'newVal'});
-		expect(wrapper.find('StyledTextFieldBase')).toHaveLength(1);
-		const event = {
-			preventDefault: () => []
-		};
-		wrapper.find('StyledTextFieldBase').simulate('blur', event);
-		expect(wrapper.instance().props.update).toBeCalled();
-		expect(wrapper.instance().props.update.mock.calls.length).toBe(1);
-		expect(wrapper.instance().props.update.mock.calls[0][0]).toEqual({'name': 'newVal'});
-		expect(wrapper.instance().props.update.mock.calls[0][1]).toBe(event);
 	});
 		
 });

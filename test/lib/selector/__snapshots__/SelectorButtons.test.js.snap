@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SelectorButtons /> rendering can render standard component with records 1`] = `
+<ButtonsContainer>
+  <Link
+    key="0"
+    replace={false}
+    to={
+      Object {
+        "pathname": "path",
+        "state": Object {},
+      }
+    }
+  >
+    <Button
+      text="btnText"
+      type="standard"
+    />
+  </Link>
+</ButtonsContainer>
+`;

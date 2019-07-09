@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SelectionComponent /> rendering can render standard component with records 1`] = `
+<div>
+  <SelectorTitle
+    title="titleText"
+  />
+  <Rowise
+    tokens={
+      Object {
+        "childrenGap": 10,
+      }
+    }
+  >
+    <Block>
+      <SelectorTable
+        columns={Array []}
+        items={Array []}
+        load={[MockFunction]}
+        selection={
+          Selection {
+            "_anchoredIndex": 0,
+            "_canSelectItem": [Function],
+            "_changeEventSuppressionCount": 0,
+            "_exemptedCount": 0,
+            "_exemptedIndices": Object {},
+            "_getKey": [Function],
+            "_isModal": false,
+            "_items": Array [],
+            "_keyToIndexMap": Object {},
+            "_onSelectionChanged": [Function],
+            "_selectedItems": null,
+            "_unselectableCount": 0,
+            "_unselectableIndices": Object {},
+            "count": 0,
+            "mode": 2,
+          }
+        }
+      />
+    </Block>
+    <Block>
+      <Columnar
+        horizontalAlign="end"
+        tokens={
+          Object {
+            "childrenGap": 5,
+          }
+        }
+      >
+        <SelectorButtons
+          buttons={
+            Array [
+              SelectionButton {
+                "condition": [Function],
+                "path": "path/edit",
+                "stateFn": [Function],
+                "text": "Edit",
+              },
+              SelectionButton {
+                "condition": [Function],
+                "path": "path/create",
+                "stateFn": [Function],
+                "text": "Create",
+              },
+            ]
+          }
+          selection={
+            Selection {
+              "_anchoredIndex": 0,
+              "_canSelectItem": [Function],
+              "_changeEventSuppressionCount": 0,
+              "_exemptedCount": 0,
+              "_exemptedIndices": Object {},
+              "_getKey": [Function],
+              "_isModal": false,
+              "_items": Array [],
+              "_keyToIndexMap": Object {},
+              "_onSelectionChanged": [Function],
+              "_selectedItems": null,
+              "_unselectableCount": 0,
+              "_unselectableIndices": Object {},
+              "count": 0,
+              "mode": 2,
+            }
+          }
+        />
+      </Columnar>
+    </Block>
+  </Rowise>
+</div>
+`;

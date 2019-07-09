@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SelectorTable /> rendering can render standard component with records 1`] = `
+<StyledMarqueeSelectionBase
+  selection={
+    Object {
+      "count": 0,
+    }
+  }
+>
+  <Table
+    columns={
+      Array [
+        Object {
+          "field": "f",
+        },
+        Object {
+          "field": "f2",
+        },
+      ]
+    }
+    list={
+      Array [
+        Object {
+          "f": "v",
+          "f2": "v2",
+        },
+        Object {
+          "f": "v3",
+          "f2": "v4",
+        },
+      ]
+    }
+    load={[MockFunction]}
+    selection={
+      Object {
+        "count": 0,
+      }
+    }
+  />
+</StyledMarqueeSelectionBase>
+`;

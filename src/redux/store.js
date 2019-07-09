@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
-import reducerRegistry from './reducer'
+import reducerRegistry from './ReducerRegistry'
 import thunkMiddleware from 'redux-thunk'
 import { combineReducers } from 'redux';
 import ajaxMiddleware from './ajaxMiddleware';

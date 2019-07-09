@@ -1,46 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
+import fieldTypes from './fieldtype';
 
-class Field extends React.Component {
+export default class Field extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {key: props.name, value: props.value};
-		this.updateValue = this.updateValue.bind(this);
 		this.update = this.update.bind(this);
 	}
 	
-	updateValue(e) {
-		e.preventDefault();
-		this.setState({...this.state, value: e.target.value});
-	}
-	
-	update(e) {
-		this.props.update({[this.state.key]: this.state.value}, e);
+	update(e, newVal) {
+		this.props.update({
+			name: this.props.name,
+			value: newVal,
+			e: e
+		})
 	}
 	
 	render() {
-		if (this.props.checkbox) {
-			return <Checkbox {...this.props} defaultChecked={this.state.value} onChange={this.updateValue} onBlur={this.update} />
-		}
-		return (
-			<TextField {...this.props} value={this.state.value} onChange={this.updateValue} onBlur={this.update} />
-		);
+		const {
+			type,
+			update,
+			...remainingProps
+		} = this.props;
+		const Tag = fieldTypes[type];
+		return <Tag update={this.update} {...remainingProps} />
 	}
 	
 }
 
+const possibleTypes = [
+	PropTypes.string,
+	PropTypes.bool
+];
+
+Field.defaultProps = {
+	readOnly: true,
+	type: 'text'
+};
+
 Field.propTypes = {
 	name: PropTypes.string.isRequired,
-	value: PropTypes.oneOfType([
-				PropTypes.string,
-				PropTypes.number,
-				PropTypes.bool
-			]).isRequired,
+	label: PropTypes.string,
+	value: PropTypes.oneOfType([...possibleTypes, PropTypes.arrayOf(possibleTypes)]),
+	readOnly: PropTypes.bool.isRequired,
 	update: PropTypes.func.isRequired,
-	checkbox: PropTypes.bool
-}
-
-export default Field;
+	type: PropTypes.oneOf(Object.keys(fieldTypes)).isRequired
+};
