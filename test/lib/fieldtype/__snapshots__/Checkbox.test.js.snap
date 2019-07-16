@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Checkbox /> rendering can render text field 1`] = `
-<StyledCheckboxBase
-  checked={true}
-  label="label"
-  onChange={[MockFunction]}
-/>
-`;

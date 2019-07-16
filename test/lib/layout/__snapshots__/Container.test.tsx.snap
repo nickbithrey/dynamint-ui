@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Container /> will render valid tag and matches snapshot 1`] = `
+<Stack
+  styles={
+    Object {
+      "inner": Object {},
+    }
+  }
+  tokens={
+    Object {
+      "childrenGap": 2,
+      "maxHeight": 20,
+    }
+  }
+>
+  <p>
+    test
+  </p>
+</Stack>
+`;

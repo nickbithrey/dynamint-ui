@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> renders link wrapper on button when link prop is supplied 1`] = `
+<Link
+  to="link"
+>
+  <CustomizedPrimaryButton
+    onClick={[MockFunction]}
+    text="button name"
+  />
+</Link>
+`;
+
+exports[`<Button /> renders valid tag and matches snapshot 1`] = `
+<CustomizedPrimaryButton
+  onClick={[MockFunction]}
+  text="button name"
+/>
+`;

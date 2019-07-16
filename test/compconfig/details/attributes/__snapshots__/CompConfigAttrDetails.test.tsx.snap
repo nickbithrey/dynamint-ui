@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CompConfigAttrDetails /> renders a valid tag and matches snapshot 1`] = `
+<Form
+  back={[MockFunction]}
+  entity={
+    Object {
+      "defaultValue": "default",
+      "name": "val1",
+      "type": "type",
+    }
+  }
+  save={[MockFunction]}
+  storageKey="compConfigAttributeDetails"
+>
+  <Component
+    label="Name"
+    name="name"
+    type="text"
+    update={[Function]}
+    value="val1"
+  />
+  <Component
+    label="Type"
+    name="type"
+    type="text"
+    update={[Function]}
+    value="type"
+  />
+  <Component
+    label="Default Value"
+    name="defaultValue"
+    type="text"
+    update={[Function]}
+    value="default"
+  />
+</Form>
+`;

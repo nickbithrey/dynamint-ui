@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> renders valid tag and matches snapshot 1`] = `
+<div>
+  <FormContent
+    entity={
+      Object {
+        "desc": "desc",
+        "reference": "ref",
+      }
+    }
+    key=".0"
+    update={[Function]}
+  />
+  <Component
+    buttons={
+      Array [
+        Object {
+          "content": "Back",
+          "key": "back",
+          "onClick": [MockFunction],
+          "type": "default",
+        },
+        Object {
+          "content": "Save",
+          "key": "save",
+          "onClick": [Function],
+          "type": "primary",
+        },
+      ]
+    }
+  />
+</div>
+`;

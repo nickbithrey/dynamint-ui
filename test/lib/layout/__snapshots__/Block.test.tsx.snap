@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Block /> renders valid tag and matches snapshot with default values 1`] = `
+<StackItem
+  align="auto"
+  disableShrink={false}
+  shrink="initial"
+  tokens={
+    Object {
+      "margin": 20,
+      "padding": 10,
+    }
+  }
+  verticalFill={true}
+>
+  <p>
+    test
+  </p>
+</StackItem>
+`;

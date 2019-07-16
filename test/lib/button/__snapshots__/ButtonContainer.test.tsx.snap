@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonContainer /> renders a valid tag and matches snapshot 1`] = `
+<Fragment>
+  <Button
+    content="button1"
+    key="button1"
+    onClick={[MockFunction]}
+    type="primary"
+  />
+  <Button
+    content="button1"
+    key="button2"
+    onClick={[MockFunction]}
+    type="default"
+  />
+</Fragment>
+`;

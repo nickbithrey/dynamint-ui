@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table /> renders a valid tag and matches snapshot 1`] = `
+<StyledShimmeredDetailsListBase
+  columns={
+    Array [
+      Object {
+        "fieldName": "col1",
+        "key": "col1",
+        "minWidth": 50,
+        "name": "column 1",
+      },
+      Object {
+        "fieldName": "col2",
+        "key": "col2",
+        "minWidth": 60,
+        "name": "column 2",
+      },
+      Object {
+        "fieldName": "col3",
+        "key": "col3",
+        "minWidth": 70,
+        "name": "column 3",
+      },
+    ]
+  }
+  enableShimmer={false}
+  items={
+    Array [
+      Object {
+        "col1": "cell11",
+        "col2": "cell12",
+        "col3": "cell13",
+        "key": "item1",
+      },
+      Object {
+        "col1": "cell21",
+        "col2": "cell22",
+        "col3": "cell23",
+        "key": "item2",
+      },
+    ]
+  }
+  selection={
+    Selection {
+      "_anchoredIndex": 0,
+      "_canSelectItem": [Function],
+      "_changeEventSuppressionCount": 0,
+      "_exemptedCount": 0,
+      "_exemptedIndices": Object {},
+      "_getKey": [Function],
+      "_isModal": false,
+      "_items": Array [],
+      "_keyToIndexMap": Object {},
+      "_onSelectionChanged": undefined,
+      "_selectedItems": null,
+      "_unselectableCount": 0,
+      "_unselectableIndices": Object {},
+      "count": 0,
+      "mode": 2,
+    }
+  }
+  selectionPreservedOnEmptyClick={true}
+/>
+`;

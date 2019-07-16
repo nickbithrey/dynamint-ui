@@ -1,0 +1,158 @@
+{
+	"http://localhost:9999/dynamint/api/v1/componentConfigurations": {
+		"isList": true,
+		"list": [
+			"http://localhost:9999/dynamint/api/v1/componentConfigurations/1",
+			"http://localhost:9999/dynamint/api/v1/componentConfigurations/4"
+		],
+		"keyIdentifier": "componentConfigurations",
+		"_links": {
+			"self": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurations{?page,size,sort}",
+				"templated": true
+			},
+			"profile": {
+				"href": "http://localhost:9999/dynamint/api/v1/profile/componentConfigurations"
+			},
+			"search": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurations/search"
+			}
+		},
+		"page": {
+			"size": 20,
+			"totalElements": 2,
+			"totalPages": 1,
+			"number": 0
+		}
+	},
+	"http://localhost:9999/dynamint/api/v1/componentConfigurations/1": {
+		"reference": "FILE_TRANSFER",
+		"description": "component for location of a file source or destination",
+		"componentType": "file",
+		"_links": {
+			"self": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurations/1"
+			},
+			"componentConfiguration": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurations/1"
+			},
+			"attributes": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurations/1/attributes"
+			}
+		}
+	},
+	"http://localhost:9999/dynamint/api/v1/componentConfigurations/4": {
+		"reference": "FTP_TRANSFER",
+		"description": "component for location of a file source or destination on an ftp server",
+		"componentType": "ftp",
+		"_links": {
+			"self": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurations/4"
+			},
+			"componentConfiguration": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurations/4"
+			},
+			"attributes": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurations/4/attributes"
+			}
+		}
+	},
+	"http://localhost:9999/dynamint/api/v1/componentConfigurations/1/attributes": {
+		"isList": true,
+		"list": [
+			"http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/2",
+			"http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/3"
+		],
+		"keyIdentifier": "componentConfigurationAttributes",
+		"_links": {
+			"self": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurations/1/attributes"
+			}
+		}
+	},
+	"http://localhost:9999/dynamint/api/v1/componentConfigurations/4/attributes": {
+		"isList": true,
+		"list": [
+			"http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/5",
+			"http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/6"
+		],
+		"keyIdentifier": "componentConfigurationAttributes",
+		"_links": {
+			"self": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurations/4/attributes"
+			}
+		}
+	},
+	"http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/2": {
+		"name": "location",
+		"type": "java.lang.String",
+		"required": true,
+		"defaultValue": null,
+		"pathParameter": true,
+		"_links": {
+			"self": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/2"
+			},
+			"componentConfigurationAttribute": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/2"
+			},
+			"componentConfiguration": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/2/componentConfiguration"
+			}
+		}
+	},
+	"http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/3": {
+		"name": "delay",
+		"type": "java.lang.Long",
+		"required": false,
+		"defaultValue": "60000",
+		"pathParameter": false,
+		"_links": {
+			"self": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/3"
+			},
+			"componentConfigurationAttribute": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/3"
+			},
+			"componentConfiguration": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/3/componentConfiguration"
+			}
+		}
+	},
+	"http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/5": {
+		"name": "delay",
+		"type": "java.lang.Long",
+		"required": false,
+		"defaultValue": "60000",
+		"pathParameter": false,
+		"_links": {
+			"self": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/5"
+			},
+			"componentConfigurationAttribute": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/5"
+			},
+			"componentConfiguration": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/5/componentConfiguration"
+			}
+		}
+	},
+	"http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/6": {
+		"name": "location",
+		"type": "java.lang.String",
+		"required": true,
+		"defaultValue": null,
+		"pathParameter": true,
+		"_links": {
+			"self": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/6"
+			},
+			"componentConfigurationAttribute": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/6"
+			},
+			"componentConfiguration": {
+				"href": "http://localhost:9999/dynamint/api/v1/componentConfigurationAttributes/6/componentConfiguration"
+			}
+		}
+	}
+}
