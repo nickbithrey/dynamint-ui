@@ -7,6 +7,7 @@ import throttle = require('lodash.throttle');
 import State from './ApplicationState';
 import reducerRegistry from './reducerRegistry';
 import dataRequestMiddleware from './middleware/dataRequestMiddleware';
+import { testDataRequest } from 'service/datarequest';
 import springDataMiddleware from './middleware/springDataRequestTransformerMiddleware';
 import pushItemMiddleware from './middleware/pushItemMiddleware';
 import modelReducerRegistry from 'model/modelReducerRegistry';
@@ -35,7 +36,7 @@ const combine = (reducers: ReducersMapObject) => {
 
 const reducer = () => initialState ? initialState : {};
 
-const store = createStore(reducer, applyMiddleware(pushItemMiddleware, dataRequestMiddleware, springDataMiddleware, thunkMiddleware, logger));
+const store = createStore(reducer, applyMiddleware(pushItemMiddleware, dataRequestMiddleware(testDataRequest), springDataMiddleware, thunkMiddleware, logger));
 
 store.subscribe(throttle(() => {
     storage.store(store.getState() as State)

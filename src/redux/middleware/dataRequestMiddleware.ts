@@ -1,4 +1,4 @@
-import { testDataRequest } from 'service/datarequest';
+import { IDataRequest } from 'service/datarequest';
 import { Dispatch, Action } from 'redux';
 
 export enum DataRequestMethod {
@@ -17,7 +17,7 @@ export interface IDataRequestAction<T, R> extends Action<string> {
     failure: (err: Error) => Action;
 }
 
-export default () => (next: Dispatch) => (action: IDataRequestAction<any, any>) => {
+export default (dataRequestService: IDataRequest) => () => (next: Dispatch) => (action: IDataRequestAction<any, any>) => {
     if (!action.dataRequest) {
         return next(action);
     }
@@ -28,23 +28,22 @@ export default () => (next: Dispatch) => (action: IDataRequestAction<any, any>) 
     let request;
     switch (action.method) {
         case DataRequestMethod.get:
-            request = testDataRequest.get(action.uri);
+            request = dataRequestService.get(action.uri);
             break;
         case DataRequestMethod.update:
-            request = testDataRequest.update(action.uri, action.data);
+            request = dataRequestService.update(action.uri, action.data);
             break;
         case DataRequestMethod.delete:
-            request = testDataRequest.delete(action.uri);
+            request = dataRequestService.delete(action.uri);
             break;
         default:
             throw Error('cannot perform action ' + action.method);
     }
-    
-    request.then(res => {
+
+    return request.then(res => {
         return next(action.success(res));
     }).catch(err => {
         return next(action.failure(err));
     });
-    
-    return next(action);
 }
+

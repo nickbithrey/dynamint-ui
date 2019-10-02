@@ -1,7 +1,7 @@
 import { MiddlewareAPI, Dispatch, AnyAction } from 'redux';
 import State, { AppDetailsState } from '../ApplicationState';
 
-interface IPushItemAction extends AnyAction {
+export interface IPushItemAction extends AnyAction {
     pushItem: boolean;
     id: string;
     action: (uri: string, item: any) => AnyAction

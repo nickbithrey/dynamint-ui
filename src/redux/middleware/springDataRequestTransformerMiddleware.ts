@@ -13,7 +13,7 @@ interface ISpringDataLink {
     href: string;
 }
 
-interface ISpringDataResponseAction extends Action<string> {
+export interface ISpringDataResponseAction extends Action<string> {
     result: {
         _embedded: ISpringDataEmbedded;
         _links: ISpringDataLinks;
