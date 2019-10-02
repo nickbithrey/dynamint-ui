@@ -1,4 +1,3 @@
-import { testDataRequest } from 'service/datarequest';
 import { MiddlewareAPI, Dispatch, AnyAction } from 'redux';
 import State, { AppDetailsState } from '../ApplicationState';
 

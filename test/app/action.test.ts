@@ -1,7 +1,7 @@
 import * as Actions from 'app/action';
 import { DataRequestMethod } from 'redux/middleware/dataRequestMiddleware';
 import { AnyAction } from 'redux';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { ThunkAction } from 'redux-thunk';
 
 describe('App Actions', () => {
     

@@ -1,16 +1,12 @@
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 import { withLoading, ILoading } from 'lib/loading';
-import State, { AppDetailsState } from '~/redux/ApplicationState';
+import State from '~/redux/ApplicationState';
 import { ICompConfig } from 'model/compconfig';
 import { ThunkDispatch } from 'redux-thunk';
 import { load, update } from './action';
 import { IURILink } from '~/lib';
-import * as AppActions from 'app/action';
 import { Field, IField } from 'lib/form/field';
 import { ITableColumn } from 'lib/table';
-
-const convoKey = 'compConfigAttrDetails';
 
 const initialState: State = {
     app: {

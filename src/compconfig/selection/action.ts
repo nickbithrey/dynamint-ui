@@ -7,7 +7,7 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 export const LOAD = 'LOAD_COMP_CONFIG';
 export const load = (): ThunkAction<Promise<void>, {}, {}, AnyAction> => {
     return async ( dispatch: ThunkDispatch<{}, {}, AnyAction> ): Promise<void> => {
-        return new Promise<void>( ( resolve ) => {
+        return new Promise<void>(() => {
             dispatch( AppActions.initConversation(AppActions.initSelection( 'compConfigSelection' )) )
             dispatch( loadComps );
         } );

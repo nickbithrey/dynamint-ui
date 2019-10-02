@@ -15,7 +15,6 @@ describe('Local Storage Adaptor', () => {
     });
     
     it('stores to the window local storage', () => {
-        const state = {};
         adaptor.setItem('key', {key:'val'});
         expect(window.localStorage.getItem('key')).toEqual('{\"key\":\"val\"}');
     });
@@ -37,38 +36,3 @@ describe('Local Storage Adaptor', () => {
     });
 
 });
-
-interface ITestAdaptor {
-    getStore: () => Object;
-    setStore: (store: Object) => void;
-}
-
-class TestAdaptor implements IAdaptor<string, Object>, ITestAdaptor {
-
-    store: Object;
-
-    getStore() {
-        return this.store;
-    }
-    
-    setStore(store: Object) {
-        this.store = store;
-    }
-    
-    getItem(key: string) {
-        return this.store;
-    }
-    
-    setItem(key: string, data: Object) {
-        this.store = data;
-        return data;
-    }
-    
-    isPresent(key: string) {
-        return !!this.getItem(key);
-    }
-    
-    clear(key: string) {
-        this.store = undefined;
-    }
-}

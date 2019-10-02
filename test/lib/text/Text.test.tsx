@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 
-import Text, { IText } from 'lib/text/Text';
-
-const expectedTag = 'Text';
+import Text from 'lib/text/Text';
 
 describe('<Text />', () => {
    

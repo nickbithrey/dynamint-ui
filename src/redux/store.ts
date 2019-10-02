@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, Reducer, Store } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import thunkMiddleware from 'redux-thunk'
 import { combineReducers, ReducersMapObject } from 'redux';
@@ -33,7 +33,7 @@ const combine = (reducers: ReducersMapObject) => {
     return combineReducers(reducers);
 };
 
-const reducer = (state: State) => initialState ? initialState : {};
+const reducer = () => initialState ? initialState : {};
 
 const store = createStore(reducer, applyMiddleware(pushItemMiddleware, dataRequestMiddleware, springDataMiddleware, thunkMiddleware, logger));
 

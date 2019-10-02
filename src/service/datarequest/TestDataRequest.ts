@@ -1,10 +1,10 @@
 import * as modeldata from './modeldata.json';
-import { IDataRequest, IPagingParameters } from './';
+import { IDataRequest } from './';
 
 class TestDataRequest implements IDataRequest {
     
-    get(uri: string, page?: IPagingParameters) {
-        return new Promise((resolve, reject) => {
+    get(uri: string) {
+        return new Promise((resolve) => {
             const data = (<any>modeldata)[uri];
             if (!data.isList) {
                 return resolve(data);
@@ -17,14 +17,14 @@ class TestDataRequest implements IDataRequest {
     }
     
     update <T>(uri: string, data: T) {
-        return new Promise<T>((resolve, reject) => {
+        return new Promise<T>((resolve) => {
             (<any>modeldata)[uri] = data;
             return resolve(data);
         })
     }
     
     delete(uri: string) {
-        return new Promise<boolean>((resolve, reject) => {
+        return new Promise<boolean>((resolve) => {
             console.log('delete at uri ' + uri);
             return resolve(true);
         });

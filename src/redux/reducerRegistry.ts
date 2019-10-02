@@ -32,6 +32,4 @@ export class ReducerRegistry {
     
 }
 
-
-
 export default new ReducerRegistry();

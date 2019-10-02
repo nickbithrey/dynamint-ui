@@ -13,8 +13,7 @@ describe('<CompConfigSelection />', () => {
         loading: false,
         columns: [
             {key: 'col1', name: 'col1', fieldName: 'col1', minWidth: 50, maxWidth: 100}
-        ],
-        updateSelected: jest.fn()
+        ]
     };
     
     let wrapper: ShallowWrapper;

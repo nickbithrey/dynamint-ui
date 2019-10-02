@@ -1,8 +1,7 @@
 import * as React from 'react';
-import Table, { ITable, ITableColumn, ITableItem } from 'lib/table';
+import { ITableColumn, ITableItem } from 'lib/table';
 import Text from 'lib/text';
-import { Button, IButton, ButtonContainer } from 'lib/button';
-import { Key, Condition } from '~/lib';
+import { Condition } from '~/lib';
 import { Selector, ISelectionDetails, ISelectionButton, SelectionType } from 'lib/selector';
 
 export interface ICompConfigSelection {
@@ -10,7 +9,6 @@ export interface ICompConfigSelection {
     loading: boolean;
     items: Array<any & ITableItem>;
     columns: Array<ITableColumn>;
-    updateSelected: (selectedKeys: Array<string | number>) => void;
 }
 
 const editButton: ISelectionButton & Condition<ISelectionDetails> = {
@@ -43,12 +41,7 @@ const createButton: ISelectionButton & Condition<any> = {
     condition: (input: ISelectionDetails) => input.selected.length === 0
 };
 
-const onItemInvoked = (item: any) => {
-    const uri = item.uri;
-    console.log('invoked ' + JSON.stringify(item));
-}
-
-const Selection = ({items, loading, columns, updateSelected}: ICompConfigSelection) => {
+const Selection = ({items, loading, columns}: ICompConfigSelection) => {
     const buttons: Array<ISelectionButton & Condition<ISelectionDetails>> = [
         viewButton,
         editButton,

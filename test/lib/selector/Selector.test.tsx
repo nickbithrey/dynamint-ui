@@ -1,17 +1,13 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import { ISelection, SelectionMode, Selection } from 'office-ui-fabric-react/lib/Selection';
+import { ISelection } from 'office-ui-fabric-react/lib/Selection';
 
 import {
     ISelector,
     Selector,
-    ISelectionButton,
     ISelectionDetails,
     SelectionType,
-    ISelectorState
 } from 'lib/selector/Selector';
-
-const SubComp = () => <p>text</p>;
 
 describe('selector', () => {
     

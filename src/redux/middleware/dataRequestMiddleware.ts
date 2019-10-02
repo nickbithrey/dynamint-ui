@@ -1,5 +1,5 @@
 import { testDataRequest } from 'service/datarequest';
-import { MiddlewareAPI, Dispatch, Action } from 'redux';
+import { Dispatch, Action } from 'redux';
 
 export enum DataRequestMethod {
     get,
@@ -17,7 +17,7 @@ export interface IDataRequestAction<T, R> extends Action<string> {
     failure: (err: Error) => Action;
 }
 
-export default (store: MiddlewareAPI) => (next: Dispatch) => (action: IDataRequestAction<any, any>) => {
+export default () => (next: Dispatch) => (action: IDataRequestAction<any, any>) => {
     if (!action.dataRequest) {
         return next(action);
     }
@@ -41,9 +41,10 @@ export default (store: MiddlewareAPI) => (next: Dispatch) => (action: IDataReque
     }
     
     request.then(res => {
-        next(action.success(res));
+        return next(action.success(res));
     }).catch(err => {
-        next(action.failure(err));
+        return next(action.failure(err));
     });
     
+    return next(action);
 }

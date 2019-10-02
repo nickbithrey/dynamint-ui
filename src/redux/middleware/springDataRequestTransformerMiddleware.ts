@@ -1,5 +1,4 @@
-import { testDataRequest } from 'service/datarequest';
-import { MiddlewareAPI, Dispatch, Action } from 'redux';
+import { Dispatch, Action } from 'redux';
 
 interface ISpringDataEmbedded {
     [key: string]: any;
@@ -22,7 +21,7 @@ interface ISpringDataResponseAction extends Action<string> {
     }
 }
 
-export default (store: MiddlewareAPI) => (next: Dispatch) => (action: ISpringDataResponseAction) => {
+export default () => (next: Dispatch) => (action: ISpringDataResponseAction) => {
     if (!action.result || !action.result._embedded) {
         return next(action);
     }

@@ -4,7 +4,6 @@ import {
     DefaultButton, 
     CommandBarButton, 
     IconButton,
-    IButtonProps,
     BaseButton
 } from 'office-ui-fabric-react/lib/Button';
 import { Link } from 'react-router-dom';

@@ -1,8 +1,7 @@
 import reducer from './reducer';
-import { Dispatch, AnyAction } from 'redux';
+import { AnyAction } from 'redux';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import * as AppActions from 'app/action';
-import { ICompConfigAttribute } from './';
 console.log(reducer.name);
 
 export const LOAD_REQUEST = 'LOAD_COMP_CONFIG_ATTRIBUTES_REQUEST';
@@ -23,7 +22,7 @@ export const loadConfigCompSuccess = (result: any) => (
 
 export const loadSuccess = (result: any, id: string): ThunkAction<Promise<void>, {}, {}, AnyAction> => {
     return async ( dispatch: ThunkDispatch<{}, {}, AnyAction> ): Promise<void> => {
-        return new Promise<void>(resolve => {
+        return new Promise<void>(() => {
             dispatch( loadConfigCompSuccess(result) );
             dispatch( AppActions.loadedComponent(id) );
         });

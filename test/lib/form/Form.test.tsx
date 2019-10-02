@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 
-import { Form, IForm } from 'lib/form/Form';
+import { Form } from 'lib/form/Form';
 
 const FormContent = () => <p>form</p>;
 

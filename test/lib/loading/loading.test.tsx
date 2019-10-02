@@ -1,9 +1,6 @@
 import * as React from 'react';
-import { shallow, ShallowWrapper } from 'enzyme';
-import {
-    withLoading,
-    ILoading
-} from 'lib/loading/loading';
+import { shallow } from 'enzyme';
+import { withLoading } from 'lib/loading/loading';
 
 const SubComp = () => <span />
 

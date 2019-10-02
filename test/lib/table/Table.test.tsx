@@ -1,10 +1,6 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import {
-    Table,
-    ITable,
-    ITableColumn
-} from 'lib/table/Table';
+import { Table, ITable } from 'lib/table/Table';
 import { Selection } from 'office-ui-fabric-react/lib/DetailsList';
 
 const expectedTag = 'StyledShimmeredDetailsListBase';

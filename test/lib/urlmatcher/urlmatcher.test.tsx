@@ -1,10 +1,6 @@
 import * as React from 'react';
-import { shallow, ShallowWrapper } from 'enzyme';
-import {
-    withUrlMatcher,
-    IUrlMatcher,
-    IUrlParam
-} from 'lib/urlmatcher/urlmatcher';
+import { shallow } from 'enzyme';
+import { withUrlMatcher } from 'lib/urlmatcher/urlmatcher';
 
 const SubComp = () => <span />
 

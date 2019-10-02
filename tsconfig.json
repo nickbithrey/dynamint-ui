@@ -16,7 +16,11 @@
 			"app/*": ["src/app/*"]
 		},
 		"resolveJsonModule": true,
-		"target": "es5"
+		"target": "es5",
+		"noUnusedParameters": false,
+		"noUnusedLocals": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitReturns": true
 	},
 	"compileOnSave": true
 }

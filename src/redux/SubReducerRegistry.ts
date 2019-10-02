@@ -1,4 +1,4 @@
-import { ReducersMapObject, combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 import { ReducerRegistry } from './reducerRegistry';
 
 export class SubReducerRegistry extends ReducerRegistry {

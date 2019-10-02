@@ -1,19 +1,17 @@
 import * as React from 'react';
-import { Form, IForm } from 'lib/form';
+import { Form } from 'lib/form';
 import { Field } from 'lib/form/field';
 import { ICompConfig } from 'model/compconfig';
-import { History, Location } from 'history';
 import Attributes, { Attribute } from './attributes';
 
 export interface IDetails {
     id: string | number;
-    loading: boolean;
     item: ICompConfig;
     update: (item: ICompConfig) => void;
     back: () => void;
 }
 
-const Details = ({loading, item, update, back}: IDetails) => {
+const Details = ({item, update, back}: IDetails) => {
     return (
         <Form entity={item} storageKey={'compConfigDetails'} save={update} back={back}>
             <Field

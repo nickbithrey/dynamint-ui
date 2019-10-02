@@ -17,7 +17,6 @@ describe('<CompConfigDetails />', () => {
             },
             uri: 'href'
         },
-        loading: false,
         update: jest.fn(),
         back: jest.fn()
     };

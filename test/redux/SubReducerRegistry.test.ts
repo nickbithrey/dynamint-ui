@@ -1,6 +1,6 @@
 import { SubReducerRegistry } from 'redux/SubReducerRegistry';
 import { ReducerRegistry } from 'redux/reducerRegistry';
-import { Reducer, combineReducers } from 'redux';
+import { Reducer } from 'redux';
 
 describe('sub reducer registry', () => {
     

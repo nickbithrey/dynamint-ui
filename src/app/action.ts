@@ -8,7 +8,7 @@ const newConversation = {
 }
 export const initConversation = (action: AnyAction): ThunkAction<Promise<void>, {}, {}, AnyAction> => {
     return async ( dispatch: ThunkDispatch<{}, {}, AnyAction> ): Promise<void> => {
-        return new Promise<void>( ( resolve ) => {
+        return new Promise<void>(() => {
             dispatch(newConversation)
             dispatch(action);
         } );

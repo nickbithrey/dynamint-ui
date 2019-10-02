@@ -1,6 +1,5 @@
 import Selection from './CompConfigSelection';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 import { withLoading } from 'lib/loading';
 import { load } from './action';
 import State from '~/redux/ApplicationState';
@@ -37,7 +36,7 @@ const mapStateToProps = ( state: State = initialState) => {
 
 const mapDispatchToProps = ( dispatch: ThunkDispatch<{}, {}, any>) => {
     return {
-        load: (id: string | number) => dispatch(load())
+        load: () => dispatch(load())
     };
 }
 

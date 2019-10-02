@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Table, { ITableItem, ITableColumn } from 'lib/table';
-import { Button, IButton, ButtonContainer } from 'lib/button';
+import { IButton, ButtonContainer } from 'lib/button';
 import { Key, Condition, URI } from '~/lib';
 import { ISelection, Selection, SelectionMode } from 'office-ui-fabric-react/lib/Selection';
 import { BaseButton } from 'office-ui-fabric-react/lib/Button';

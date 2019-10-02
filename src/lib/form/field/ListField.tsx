@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { updateOnChange, ITypedField } from './Field';
-import { IButton, ButtonContainer } from 'lib/button';
-import { Key, Condition } from '~/lib';
-import Table, { ITableColumn } from 'lib/table';
+import { ITypedField } from './Field';
+import { Condition } from '~/lib';
+import { ITableColumn } from 'lib/table';
 import { Selector, ISelectionDetails, ISelectionButton, SelectionType } from 'lib/selector';
 
 export interface IListField extends ITypedField<Array<Object>> {
@@ -11,16 +10,6 @@ export interface IListField extends ITypedField<Array<Object>> {
     entityForm: React.ComponentType;
     columns: Array<ITableColumn>;
 }
-
-const createButton: ISelectionButton & Condition<any> = {
-    button: {
-        key: 'create',
-        content: 'Create',
-        link: '/compconfigs',
-        type: 'default'
-    },
-    condition: (input: ISelectionDetails) => input.selected.length === 0
-};
 
 interface IListFieldState {
     items: Array<any>;

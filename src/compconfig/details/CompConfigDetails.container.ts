@@ -1,13 +1,11 @@
 import Details from './CompConfigDetails';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 import { withLoading } from 'lib/loading';
 import State, { AppDetailsState } from '~/redux/ApplicationState';
 import { ICompConfig } from 'model/compconfig';
 import { ThunkDispatch } from 'redux-thunk';
 import { load, update } from './action';
 import { History, Location } from 'history';
-import { match } from 'react-router';
 import { URI, Display } from '~/lib';
 import * as AppActions from 'app/action';
 

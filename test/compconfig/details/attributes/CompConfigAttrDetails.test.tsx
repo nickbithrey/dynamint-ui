@@ -11,7 +11,6 @@ describe('<CompConfigAttrDetails />', () => {
             type: 'type',
             defaultValue: 'default'
         },
-        loading: false,
         update: jest.fn(),
         back: jest.fn()
     };

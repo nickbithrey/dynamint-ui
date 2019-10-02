@@ -1,16 +1,6 @@
 import * as React from 'react';
-import { 
-    shallow, 
-    ShallowWrapper 
-} from 'enzyme';
-import {
-    ButtonContainer,
-    IButtonContainer
-} from 'lib/button/ButtonContainer';
-import {
-    Button,
-    IButton
-} from 'lib/button/Button';
+import { shallow, ShallowWrapper } from 'enzyme';
+import { ButtonContainer, IButtonContainer } from 'lib/button/ButtonContainer';
 
 describe('<ButtonContainer />', () => {
     

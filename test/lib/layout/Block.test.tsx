@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import {
-    Block,
-    IBlock
-} from 'lib/layout/Block';
+import { Block } from 'lib/layout/Block';
 
 const expectedTag = 'StackItem';
 

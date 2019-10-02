@@ -1,18 +1,6 @@
 import * as React from 'react';
-import { 
-    DetailsListLayoutMode, 
-    IColumn, 
-    DetailsRow,
-    IDetailsRowProps,
-    IDetailsRowBaseProps,
-    DetailsColumnBase
-} from 'office-ui-fabric-react/lib/DetailsList';
-import { IRenderFunction } from 'office-ui-fabric-react/lib/Utilities';
+import { IColumn } from 'office-ui-fabric-react/lib/DetailsList';
 import { ShimmeredDetailsList } from 'office-ui-fabric-react/lib/ShimmeredDetailsList';
-import {
-    DefaultTableRow,
-    IDefaultTableRow
-} from './DefaultTableRow';
 import { ISelection } from 'office-ui-fabric-react/lib/Selection';
 
 export interface ITable {
@@ -20,9 +8,6 @@ export interface ITable {
     items: Array<ITableItem>;
     columns: Array<ITableColumn>;
     selection?: ISelection;
-    onRenderRow?: IRenderFunction<IDefaultTableRow>;
-    onRenderItemColumn?: (item: ITableItem, index: number, column: ITableColumn) => React.ReactNode;
-    onItemInvoked?: (item?: ITableItem, index?: number, ev?: Event) => void;
 }
 
 export interface ITableItem {
@@ -48,10 +33,7 @@ export class Table extends React.Component<ITable> {
             items,
             columns,
             loading,
-            selection,
-            onRenderRow,
-            onRenderItemColumn,
-            onItemInvoked
+            selection
         } = this.props;
         return (
                 <ShimmeredDetailsList
@@ -60,9 +42,6 @@ export class Table extends React.Component<ITable> {
                     enableShimmer={loading}
                     selection={selection}
                     selectionPreservedOnEmptyClick={true}
-                    onRenderRow={onRenderRow}
-                    onRenderItemColumn={onRenderItemColumn}
-                    onItemInvoked={onItemInvoked}
                 />
         );
     }
