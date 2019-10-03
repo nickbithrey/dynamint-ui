@@ -7,17 +7,14 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
-	entry : "./src/Application.tsx",
-	mode: "development",
-	devtool : "inline-source-map",
+	entry : "./src/app.js",
+	devtool : 'sourcemaps',
 	cache : true,
 	stats : 'normal',
 	output : {
 		filename : 'bundled.js',
 	},
-
 	resolve : {
-		extensions : [ ".ts", ".tsx", ".js" ],
 		modules : [
 			'node_modules',
 			path.resolve(__dirname + '/src')
@@ -26,25 +23,17 @@ module.exports = {
 			['~'] : path.resolve(__dirname + '/src')
 		}
 	},
-
 	module : {
 		rules : [ {
-			test : /\.ts(x?)$/,
-			exclude : /node_modules/,
-			use : [ {
-				loader : "ts-loader"
-			} ]
-		},
-		{
-			enforce : "pre",
-			test : [/\.js$/,/\.ts$/],
-			loader : "source-map-loader"
-		},
-		{
+			test : /\.js$/,
+			exclude : path.resolve(__dirname, 'node_modules'),
+			use : {
+				loader : 'babel-loader'
+			}
+		}, {
 			test : /\.css$/,
 			use : [ "style-loader", "css-loader" ]
-		}
-		]
+		} ]
 	},
 	plugins : [ htmlWebpackPlugin ],
 	devServer : {

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CompConfigDetails /> renders a valid tag and matches snapshot 1`] = `
+<Form
+  back={[MockFunction]}
+  entity={
+    Object {
+      "_links": Object {
+        "attributes": Object {
+          "href": "href",
+        },
+      },
+      "componentType": "type",
+      "description": "desc",
+      "reference": "val1",
+      "uri": "href",
+    }
+  }
+  save={[MockFunction]}
+  storageKey="compConfigDetails"
+>
+  <Component
+    label="Reference"
+    name="reference"
+    type="text"
+    value="val1"
+  />
+  <Component
+    label="Description"
+    name="description"
+    type="text"
+    value="desc"
+  />
+  <Component
+    label="ComponentType"
+    name="componentType"
+    type="text"
+    value="type"
+  />
+  <Connect(Loading)
+    entityForm={[Function]}
+    link={
+      Object {
+        "href": "href",
+      }
+    }
+  />
+</Form>
+`;

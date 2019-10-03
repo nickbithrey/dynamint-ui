@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CompConfigSelection /> renders a valid tag and matches snapshot 1`] = `
+<div>
+  <T>
+    Configuration Selection
+  </T>
+  <Selector
+    buttons={
+      Array [
+        Object {
+          "button": Object {
+            "content": "View",
+            "key": "view",
+            "type": "default",
+          },
+          "condition": [Function],
+          "linkResolver": [Function],
+        },
+        Object {
+          "button": Object {
+            "content": "Edit",
+            "key": "edit",
+            "type": "primary",
+          },
+          "condition": [Function],
+          "linkResolver": [Function],
+        },
+        Object {
+          "button": Object {
+            "content": "Create",
+            "key": "create",
+            "link": "/compconfigs/details",
+            "type": "default",
+          },
+          "condition": [Function],
+        },
+      ]
+    }
+    columns={
+      Array [
+        Object {
+          "fieldName": "col1",
+          "key": "col1",
+          "maxWidth": 100,
+          "minWidth": 50,
+          "name": "col1",
+        },
+      ]
+    }
+    items={
+      Array [
+        Object {
+          "col1": "val1",
+        },
+        Object {
+          "col1": "val2",
+        },
+      ]
+    }
+    loading={false}
+    selectionType={1}
+    storeKey="config-selection"
+  />
+</div>
+`;

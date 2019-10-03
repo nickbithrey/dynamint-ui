@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Button /> rendering can render standard button 1`] = `
-<CustomizedDefaultButton
-  onClick={[MockFunction]}
-  text="name"
-/>
-`;

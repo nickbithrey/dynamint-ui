@@ -1,0 +1,26 @@
+{
+	"exclude": ["./node_modules/**/*"],
+	"include": ["src/**/*", "test/**/*"],
+	"compilerOptions": {
+		"baseUrl": ".",
+		"jsx": "react",
+		"module": "commonjs",
+		"noImplicitAny": true,
+		"paths": {
+			"~/*": ["src/*"],
+			"lib/*": ["src/lib/*"],
+			"service/*": ["src/service/*"],
+			"util/*": ["src/util/*"],
+			"redux/*": ["src/redux/*"],
+			"model/*": ["src/model/*"],
+			"app/*": ["src/app/*"]
+		},
+		"resolveJsonModule": true,
+		"target": "es5",
+		"noUnusedParameters": false,
+		"noUnusedLocals": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitReturns": true
+	},
+	"compileOnSave": true
+}

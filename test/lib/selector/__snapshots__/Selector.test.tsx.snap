@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`selector will render a valid tag and matches snapshot 1`] = `
+<Fragment>
+  <Table
+    columns={
+      Array [
+        Object {
+          "fieldName": "col1",
+          "key": "col1",
+          "minWidth": 50,
+          "name": "col1",
+        },
+        Object {
+          "fieldName": "col2",
+          "key": "col2",
+          "minWidth": 100,
+          "name": "col2",
+        },
+      ]
+    }
+    items={
+      Array [
+        Object {
+          "key": "i1",
+          "selected": false,
+        },
+        Object {
+          "key": "i2",
+          "selected": false,
+        },
+        Object {
+          "key": "i3",
+          "selected": false,
+        },
+      ]
+    }
+    loading={false}
+    selection={
+      Selection {
+        "_anchoredIndex": 0,
+        "_canSelectItem": [Function],
+        "_changeEventSuppressionCount": 0,
+        "_exemptedCount": 0,
+        "_exemptedIndices": Object {},
+        "_getKey": [Function],
+        "_isModal": false,
+        "_items": Array [],
+        "_keyToIndexMap": Object {},
+        "_onSelectionChanged": [Function],
+        "_selectedItems": null,
+        "_unselectableCount": 0,
+        "_unselectableIndices": Object {},
+        "count": 0,
+        "mode": 1,
+      }
+    }
+  />
+  <Component
+    buttons={
+      Array [
+        Object {
+          "content": "Standard",
+          "key": "standard",
+          "link": "link",
+          "onClick": [MockFunction],
+          "type": "primary",
+        },
+        Object {
+          "content": "Link Resolver",
+          "key": "standard",
+          "link": "updatedLink",
+          "onClick": [MockFunction],
+          "type": "primary",
+        },
+        Object {
+          "content": "onClick Resolver",
+          "key": "standard",
+          "link": "link",
+          "onClick": [MockFunction],
+          "type": "primary",
+        },
+      ]
+    }
+  />
+</Fragment>
+`;
